@@ -24,8 +24,9 @@ namespace Casus___Circustrein
         public int eating { get; set; }
         public int AnimalID { get; set; }
         public string Name { get; set; }
+        public bool AddedToCart { get; set; }
 
-        public Animal(int i, string name, int type, int diet)
+        public Animal(int i, string name, int type, int diet, bool addedToCart)
         {
             AnimalID = i;
             if (String.IsNullOrEmpty((name)) )
@@ -57,6 +58,8 @@ namespace Casus___Circustrein
             {
                 eating = (int) Animal.diet.herbivore;
             }
+
+            addedToCart = false;
         }
 
     }
