@@ -111,8 +111,10 @@
             this.RadBig.Size = new System.Drawing.Size(40, 17);
             this.RadBig.TabIndex = 7;
             this.RadBig.TabStop = true;
+            this.RadBig.Tag = "3";
             this.RadBig.Text = "Big";
             this.RadBig.UseVisualStyleBackColor = true;
+            this.RadBig.CheckedChanged += new System.EventHandler(this.ChangeSelectionRB);
             // 
             // RadMedium
             // 
@@ -122,8 +124,10 @@
             this.RadMedium.Size = new System.Drawing.Size(62, 17);
             this.RadMedium.TabIndex = 6;
             this.RadMedium.TabStop = true;
+            this.RadMedium.Tag = "2";
             this.RadMedium.Text = "Medium";
             this.RadMedium.UseVisualStyleBackColor = true;
+            this.RadMedium.CheckedChanged += new System.EventHandler(this.ChangeSelectionRB);
             // 
             // RadSmall
             // 
@@ -133,8 +137,10 @@
             this.RadSmall.Size = new System.Drawing.Size(50, 17);
             this.RadSmall.TabIndex = 5;
             this.RadSmall.TabStop = true;
+            this.RadSmall.Tag = "1";
             this.RadSmall.Text = "Small";
             this.RadSmall.UseVisualStyleBackColor = true;
+            this.RadSmall.CheckedChanged += new System.EventHandler(this.ChangeSelectionRB);
             // 
             // label3
             // 

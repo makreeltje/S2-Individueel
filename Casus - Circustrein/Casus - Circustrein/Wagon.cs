@@ -4,70 +4,35 @@ namespace Casus___Circustrein
 {
     class Wagon
     {
-        private int wagonID = 1;
         public static int size = 0;
-
-        List<Animal> animals = new List<Animal>();
-
+        public static List<Wagon> list = new List<Wagon>();
         public int Diet { get; set; }
         public int Size { get; set; }
-        public int WagonID { get; set; }
 
-        private void AddWagon()
-        {
-            wagonID++;
-        }
-        public Wagon()
-        {
-            AddWagon();
-            WagonID = wagonID;
-        }
+        
 
         public int AddAnimalToWagon(int size, int diet)
         {
             if (Wagon.size >= 10)
             {
                 Wagon.size = 0;
-                AddWagon();
             }
             else
             {
-                if (size == 1)
+                if (diet == 0)
                 {
-                    if (diet == 1)
+                    if (size == 5)
                     {
                         Wagon.size++;
                     }
-                    else
+                    else if (size == 3)
                     {
-                        Wagon.size++;
-                    }
-                }
-                else if (size == 3)
-                {
-                    if (diet == 1)
-                    {
-                        Wagon.size += 3;
-                    }
-                    else
-                    {
-                        Wagon.size += 3;
-                    }
-                }
-                else
-                {
-                    if (diet == 1)
-                    {
-                        Wagon.size += 5;
-                    }
-                    else
-                    {
-                        Wagon.size += 5;
+
                     }
                 }
             }
 
-            return WagonID;
+            return 1;
         }
 
         private void CheckIfWagonIsFull()

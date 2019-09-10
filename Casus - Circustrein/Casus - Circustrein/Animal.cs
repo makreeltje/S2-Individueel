@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,54 +13,69 @@ namespace Casus___Circustrein
         { 
             small = 1,
             medium = 3,
-            big = 5
+            big = 5,
+            extrabig = 10
         }
-        public int size { get; set; }
+
+         
+        public int Size { get; set; }
         private enum diet
         {
             carnivore,
             herbivore
         }
 
-        public int eating { get; set; }
+        public int Eating { get; set; }
         public int AnimalID { get; set; }
         public string Name { get; set; }
         public bool AddedToCart { get; set; }
 
-        public Animal(int i, string name, int type, int diet, bool addedToCart)
+        public static List<Animal> list = new List<Animal>();
+
+        private Dictionary<int, category> Woordenboek = new Dictionary<int, category>()
         {
-            AnimalID = i;
-            if (String.IsNullOrEmpty((name)) )
+            {1,category.small},
+            {2,category.medium },
+            {3,category.big },
+            {4,category.extrabig }
+        };
+
+        public Animal(string _name, int _size, int _diet, bool _addedToCart)
+        {
+            if (String.IsNullOrEmpty((_name)) )
             {
                 Name = "N/A";
             }
             else
             {
-                Name = name;
+                Name = _name;
             }
-            if (type == 1)
+
+            var iets = (int)Woordenboek[_size];
+
+            //if (_type == 1)
+            //{
+            //    size = (int)category.small;
+            //}
+            //else if (_type == 2)
+            //{
+            //    size = (int)category.medium;
+            //}
+            //else
+            //{
+            //    size = (int)category.big;
+            //}
+
+            if (_diet == 1)
             {
-                size = (int) category.small;
-            }
-            else if (type == 2)
-            {
-                size = (int) category.medium;
+                Eating = (int) diet.carnivore;
             }
             else
             {
-                size = (int) category.big;
+                Eating = (int) diet.herbivore;
             }
 
-            if (diet == 1)
-            {
-                eating = (int) Animal.diet.carnivore;
-            }
-            else
-            {
-                eating = (int) Animal.diet.herbivore;
-            }
-
-            addedToCart = false;
+            _addedToCart = false;
         }
 
     }
