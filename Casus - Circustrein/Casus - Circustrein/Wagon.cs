@@ -1,43 +1,45 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace Casus___Circustrein
 {
-    class Wagon
+    internal class Wagon
     {
-        public static int size = 0;
-        public static List<Wagon> list = new List<Wagon>();
-        public int Diet { get; set; }
-        public int Size { get; set; }
+        public List<Animal> Animals = new List<Animal>();
+        public int Space { get; private set; } = 10;
 
-        
-
-        public int AddAnimalToWagon(int size, int diet)
+        private Animal.Sizes BiggestFlesheater()
         {
-            if (Wagon.size >= 10)
+            List<Animal> FlesheaterList = Animals.Where(Animal => Animal.Carnivore).ToList();
+
+            if (FlesheaterList.Count == 0)
             {
-                Wagon.size = 0;
+                return Animal.Sizes.None;
             }
             else
             {
-                if (diet == 0)
-                {
-                    if (size == 5)
-                    {
-                        Wagon.size++;
-                    }
-                    else if (size == 3)
-                    {
-
-                    }
-                }
+                return FlesheaterList.First().Size;
             }
 
-            return 1;
         }
 
-        private void CheckIfWagonIsFull()
+        public bool TryAddAnimal(Animal newAnimal)
         {
+            if (newAnimal.Size > BiggestFlesheater() && (int) newAnimal.Size <= Space)
+            {
+                Animals.Add(newAnimal);
+                Space = 10 - Animals.Sum(Animal => (int) Animal.Size);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
+        public override string ToString()
+        {
+            return "Wagon";
         }
     }
 }

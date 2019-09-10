@@ -13,43 +13,38 @@ namespace Casus___Circustrein
 {
     public partial class Form1 : Form
     {
-        private RadioButton selectedRadioButton;
+        readonly Train Train1 = new Train();
+        List<Animal> AllAnimals = new List<Animal>();
+
         public Form1()
         {
             InitializeComponent();
-            
-
-        }
-        //private List<Animal> animals = new List<Animal>();
-        private int i = 1;
-        Wagon wagons = new Wagon();
-
-        private void ChangeSelectionRB(object sender, EventArgs e)
-        {
-            selectedRadioButton = (RadioButton) sender;
         }
 
         private void BtnAddAnimalAdd_Click(object sender, EventArgs e)
         {
-            int category = 0;
-            int diet;
+            bool carnivore = RadCarnivore.Checked;
+            Animal.Sizes size;
 
-
-            category = Convert.ToInt32(selectedRadioButton.Tag);
-            MessageBox.Show(category.ToString());
-            if (RadCarnivore.Checked) { diet = 1; }
-            else { diet = 2; }
-            
-            
-
-            Animal.list.Add(new Animal(TbName.Text, category, diet, false));
-            listBox1.Items.Clear();
-            foreach (Animal dier in Animal.list)
+            if (RadBig.Checked)
             {
-                listBox1.Items.Add($"Name: {dier.Name} Eating: {dier.Eating} AnimalID: {dier.AnimalID} Size: {dier.Size} ");
+                size = Animal.Sizes.Big;
+            }
+            else if (RadMedium.Checked)
+            {
+                size = Animal.Sizes.Medium;
+            }
+            else
+            {
+                size = Animal.Sizes.Small;
             }
 
-            i++;
+            string name = TbName.Text;
+
+            Animal newAnimal = new Animal(size, carnivore, name);
+
+            AllAnimals.Add(newAnimal);
+            ListAnimal.Items.Add(newAnimal);
         }
 
         private void BtnClose_Click(object sender, EventArgs e)
@@ -59,23 +54,50 @@ namespace Casus___Circustrein
 
         private void BtnCalculate_Click(object sender, EventArgs e)
         {
-            //while (animals.Count >= 0)
-            //{
-                foreach (Animal animal in Animal.list)
-                {
-                    label5.Text = wagons.AddAnimalToWagon(animal.Size, animal.Eating).ToString();
-                }
-            //}
+            Train1.Wagons.Clear();
+            Train1.FillWagon(AllAnimals);
 
-            //int size = 0;
-            //foreach (var animal in animals)
-            //{
-            //    size += wagons.AddAnimalToWagon(animal.size, animal.eating);
-            //}
+            ListAnimal.Items.Clear();
+            foreach (Animal item in AllAnimals)
+            {
+                ListAnimal.Items.Add(item);
+            }
+            ListTrain.Items.Clear();
+            foreach (Wagon currentWagon in Train1.Wagons)
+            {
+                ListTrain.Items.Add(currentWagon);
+            }
+        }
 
-            //size = size / 10;
+        private void ListAnimal_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int selectedIndex = ListAnimal.SelectedIndex;
+            Animal selectedAnimal = AllAnimals[selectedIndex];
 
-            //label5.Text = size.ToString();
+            LabelSelectedAnimal.Text = $"{selectedAnimal.Name}\n{selectedAnimal.Size}\n{selectedAnimal.getKind()}";
+        }
+
+        private void ListWagon_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int selectedWagonIndex = ListTrain.SelectedIndex;
+            int selectedAnimalIndex = ListWagon.SelectedIndex;
+
+            Animal selectedAnimal = Train1.Wagons[selectedWagonIndex].Animals[selectedAnimalIndex];
+
+            LabelSelectedAnimal.Text = $"{selectedAnimal.Name}\n{selectedAnimal.Size}\n{selectedAnimal.getKind()}";
+        }
+
+        private void ListTrain_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int selectedIndex = ListTrain.SelectedIndex;
+            Wagon selectedWagon = Train1.Wagons[selectedIndex];
+
+            ListWagon.Items.Clear();
+
+            foreach (Animal wagonAnimal in selectedWagon.Animals)
+            {
+                ListWagon.Items.Add(wagonAnimal);
+            }
         }
     }
 }
