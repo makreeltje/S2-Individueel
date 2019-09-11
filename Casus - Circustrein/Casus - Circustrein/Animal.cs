@@ -35,7 +35,7 @@ namespace Casus___Circustrein
 
         public string getKind()
         {
-            return Carnivore ? "flesheater" : "planteater";
+            return Carnivore ? "Carnivore" : "Herbivore";
         }
     }
 }
