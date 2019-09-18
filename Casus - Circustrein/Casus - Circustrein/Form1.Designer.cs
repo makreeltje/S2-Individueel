@@ -33,7 +33,9 @@
             this.GbAddAnimal = new System.Windows.Forms.GroupBox();
             this.BtnAddAnimalAdd = new System.Windows.Forms.Button();
             this.TbName = new System.Windows.Forms.TextBox();
+            this.LabelSelectedAnimal = new System.Windows.Forms.Label();
             this.RadBig = new System.Windows.Forms.RadioButton();
+            this.label4 = new System.Windows.Forms.Label();
             this.RadMedium = new System.Windows.Forms.RadioButton();
             this.RadSmall = new System.Windows.Forms.RadioButton();
             this.label3 = new System.Windows.Forms.Label();
@@ -42,16 +44,16 @@
             this.label2 = new System.Windows.Forms.Label();
             this.RadCarnivore = new System.Windows.Forms.RadioButton();
             this.RadHerbivore = new System.Windows.Forms.RadioButton();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.ListAnimal = new System.Windows.Forms.ListBox();
+            this.ListWagon = new System.Windows.Forms.ListBox();
+            this.ListTrain = new System.Windows.Forms.ListBox();
             this.GbAddAnimal.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // BtnCalculate
             // 
-            this.BtnCalculate.Location = new System.Drawing.Point(501, 180);
+            this.BtnCalculate.Location = new System.Drawing.Point(630, 205);
             this.BtnCalculate.Name = "BtnCalculate";
             this.BtnCalculate.Size = new System.Drawing.Size(75, 23);
             this.BtnCalculate.TabIndex = 0;
@@ -61,7 +63,7 @@
             // 
             // BtnClose
             // 
-            this.BtnClose.Location = new System.Drawing.Point(582, 180);
+            this.BtnClose.Location = new System.Drawing.Point(711, 205);
             this.BtnClose.Name = "BtnClose";
             this.BtnClose.Size = new System.Drawing.Size(75, 23);
             this.BtnClose.TabIndex = 1;
@@ -73,7 +75,9 @@
             // 
             this.GbAddAnimal.Controls.Add(this.BtnAddAnimalAdd);
             this.GbAddAnimal.Controls.Add(this.TbName);
+            this.GbAddAnimal.Controls.Add(this.LabelSelectedAnimal);
             this.GbAddAnimal.Controls.Add(this.RadBig);
+            this.GbAddAnimal.Controls.Add(this.label4);
             this.GbAddAnimal.Controls.Add(this.RadMedium);
             this.GbAddAnimal.Controls.Add(this.RadSmall);
             this.GbAddAnimal.Controls.Add(this.label3);
@@ -81,14 +85,14 @@
             this.GbAddAnimal.Controls.Add(this.panel1);
             this.GbAddAnimal.Location = new System.Drawing.Point(12, 14);
             this.GbAddAnimal.Name = "GbAddAnimal";
-            this.GbAddAnimal.Size = new System.Drawing.Size(225, 161);
+            this.GbAddAnimal.Size = new System.Drawing.Size(225, 186);
             this.GbAddAnimal.TabIndex = 3;
             this.GbAddAnimal.TabStop = false;
             this.GbAddAnimal.Text = "Add Animal";
             // 
             // BtnAddAnimalAdd
             // 
-            this.BtnAddAnimalAdd.Location = new System.Drawing.Point(144, 132);
+            this.BtnAddAnimalAdd.Location = new System.Drawing.Point(144, 157);
             this.BtnAddAnimalAdd.Name = "BtnAddAnimalAdd";
             this.BtnAddAnimalAdd.Size = new System.Drawing.Size(75, 23);
             this.BtnAddAnimalAdd.TabIndex = 4;
@@ -103,6 +107,15 @@
             this.TbName.Size = new System.Drawing.Size(164, 20);
             this.TbName.TabIndex = 8;
             // 
+            // LabelSelectedAnimal
+            // 
+            this.LabelSelectedAnimal.AutoSize = true;
+            this.LabelSelectedAnimal.Location = new System.Drawing.Point(51, 141);
+            this.LabelSelectedAnimal.Name = "LabelSelectedAnimal";
+            this.LabelSelectedAnimal.Size = new System.Drawing.Size(27, 39);
+            this.LabelSelectedAnimal.TabIndex = 6;
+            this.LabelSelectedAnimal.Text = "N/A\r\nN/A\r\nN/A";
+            // 
             // RadBig
             // 
             this.RadBig.AutoSize = true;
@@ -111,8 +124,18 @@
             this.RadBig.Size = new System.Drawing.Size(40, 17);
             this.RadBig.TabIndex = 7;
             this.RadBig.TabStop = true;
+            this.RadBig.Tag = "3";
             this.RadBig.Text = "Big";
             this.RadBig.UseVisualStyleBackColor = true;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(7, 141);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(38, 39);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "Name:\r\nSize:\r\nDiet:";
             // 
             // RadMedium
             // 
@@ -122,6 +145,7 @@
             this.RadMedium.Size = new System.Drawing.Size(62, 17);
             this.RadMedium.TabIndex = 6;
             this.RadMedium.TabStop = true;
+            this.RadMedium.Tag = "2";
             this.RadMedium.Text = "Medium";
             this.RadMedium.UseVisualStyleBackColor = true;
             // 
@@ -133,6 +157,7 @@
             this.RadSmall.Size = new System.Drawing.Size(50, 17);
             this.RadSmall.TabIndex = 5;
             this.RadSmall.TabStop = true;
+            this.RadSmall.Tag = "1";
             this.RadSmall.Text = "Small";
             this.RadSmall.UseVisualStyleBackColor = true;
             // 
@@ -198,40 +223,41 @@
             this.RadHerbivore.Text = "Herbivore";
             this.RadHerbivore.UseVisualStyleBackColor = true;
             // 
-            // listBox1
+            // ListAnimal
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(243, 14);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(414, 160);
-            this.listBox1.TabIndex = 4;
+            this.ListAnimal.FormattingEnabled = true;
+            this.ListAnimal.Location = new System.Drawing.Point(243, 14);
+            this.ListAnimal.Name = "ListAnimal";
+            this.ListAnimal.Size = new System.Drawing.Size(177, 186);
+            this.ListAnimal.TabIndex = 4;
+            this.ListAnimal.SelectedIndexChanged += new System.EventHandler(this.ListAnimal_SelectedIndexChanged);
             // 
-            // label4
+            // ListWagon
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 185);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(89, 13);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Wagons to order:";
+            this.ListWagon.FormattingEnabled = true;
+            this.ListWagon.Location = new System.Drawing.Point(426, 14);
+            this.ListWagon.Name = "ListWagon";
+            this.ListWagon.Size = new System.Drawing.Size(177, 186);
+            this.ListWagon.TabIndex = 7;
+            this.ListWagon.SelectedIndexChanged += new System.EventHandler(this.ListWagon_SelectedIndexChanged);
             // 
-            // label5
+            // ListTrain
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(107, 185);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(35, 13);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "label5";
+            this.ListTrain.FormattingEnabled = true;
+            this.ListTrain.Location = new System.Drawing.Point(609, 14);
+            this.ListTrain.Name = "ListTrain";
+            this.ListTrain.Size = new System.Drawing.Size(177, 186);
+            this.ListTrain.TabIndex = 8;
+            this.ListTrain.SelectedIndexChanged += new System.EventHandler(this.ListTrain_SelectedIndexChanged);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(664, 211);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.listBox1);
+            this.ClientSize = new System.Drawing.Size(800, 234);
+            this.Controls.Add(this.ListTrain);
+            this.Controls.Add(this.ListWagon);
+            this.Controls.Add(this.ListAnimal);
             this.Controls.Add(this.BtnClose);
             this.Controls.Add(this.BtnCalculate);
             this.Controls.Add(this.GbAddAnimal);
@@ -242,7 +268,6 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -262,9 +287,11 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button BtnAddAnimalAdd;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox ListAnimal;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label LabelSelectedAnimal;
+        private System.Windows.Forms.ListBox ListWagon;
+        private System.Windows.Forms.ListBox ListTrain;
     }
 }
 

@@ -1,78 +1,45 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace Casus___Circustrein
 {
-    class Wagon
+    internal class Wagon
     {
-        private int wagonID = 1;
-        public static int size = 0;
+        public List<Animal> Animals = new List<Animal>();
+        public int Space { get; private set; } = 10;
 
-        List<Animal> animals = new List<Animal>();
-
-        public int Diet { get; set; }
-        public int Size { get; set; }
-        public int WagonID { get; set; }
-
-        private void AddWagon()
+        private Animal.Sizes BiggestFlesheater()
         {
-            wagonID++;
-        }
-        public Wagon()
-        {
-            AddWagon();
-            WagonID = wagonID;
-        }
+            List<Animal> FlesheaterList = Animals.Where(Animal => Animal.Carnivore).ToList();
 
-        public int AddAnimalToWagon(int size, int diet)
-        {
-            if (Wagon.size >= 10)
+            if (FlesheaterList.Count == 0)
             {
-                Wagon.size = 0;
-                AddWagon();
+                return Animal.Sizes.None;
             }
             else
             {
-                if (size == 1)
-                {
-                    if (diet == 1)
-                    {
-                        Wagon.size++;
-                    }
-                    else
-                    {
-                        Wagon.size++;
-                    }
-                }
-                else if (size == 3)
-                {
-                    if (diet == 1)
-                    {
-                        Wagon.size += 3;
-                    }
-                    else
-                    {
-                        Wagon.size += 3;
-                    }
-                }
-                else
-                {
-                    if (diet == 1)
-                    {
-                        Wagon.size += 5;
-                    }
-                    else
-                    {
-                        Wagon.size += 5;
-                    }
-                }
+                return FlesheaterList.First().Size;
             }
 
-            return WagonID;
         }
 
-        private void CheckIfWagonIsFull()
+        public bool TryAddAnimal(Animal newAnimal)
         {
+            if (newAnimal.Size > BiggestFlesheater() && (int) newAnimal.Size <= Space)
+            {
+                Animals.Add(newAnimal);
+                Space = 10 - Animals.Sum(Animal => (int) Animal.Size);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
+        public override string ToString()
+        {
+            return "Wagon";
         }
     }
 }
