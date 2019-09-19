@@ -3,7 +3,11 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+<<<<<<< Updated upstream
     <UserSecretsId>8e19ab89-0aac-4e47-9261-d8320b0a5d61</UserSecretsId>
+=======
+    <UserSecretsId>8f71884e-6396-4f00-a317-ab77ccfb1938</UserSecretsId>
+>>>>>>> Stashed changes
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
   </PropertyGroup>
 
