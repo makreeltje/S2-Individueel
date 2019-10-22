@@ -11,6 +11,14 @@ namespace Casus___Circustrein.Tests
     [TestClass()]
     public class WagonTests
     {
+<<<<<<< HEAD
         
+=======
+        [TestMethod()]
+        public void TryAddAnimalTest()
+        {
+            Assert.Fail();
+        }
+>>>>>>> master
     }
 }
