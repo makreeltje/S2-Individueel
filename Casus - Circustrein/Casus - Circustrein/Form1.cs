@@ -13,8 +13,8 @@ namespace Casus___Circustrein
 {
     public partial class Form1 : Form
     {
-        readonly Train Train1 = new Train();
-        List<Animal> AllAnimals = new List<Animal>();
+        readonly Train Trains = new Train();
+        public List<Animal> AllAnimals = new List<Animal>();
 
         public Form1()
         {
@@ -54,8 +54,8 @@ namespace Casus___Circustrein
 
         private void BtnCalculate_Click(object sender, EventArgs e)
         {
-            Train1.Wagons.Clear();
-            Train1.FillWagon(AllAnimals);
+            Trains.Wagons.Clear();
+            Trains.FillWagon(AllAnimals);
 
             ListAnimal.Items.Clear();
             foreach (Animal item in AllAnimals)
@@ -63,7 +63,7 @@ namespace Casus___Circustrein
                 ListAnimal.Items.Add(item);
             }
             ListTrain.Items.Clear();
-            foreach (Wagon currentWagon in Train1.Wagons)
+            foreach (Wagon currentWagon in Trains.Wagons)
             {
                 ListTrain.Items.Add(currentWagon);
             }
@@ -82,7 +82,7 @@ namespace Casus___Circustrein
             int selectedWagonIndex = ListTrain.SelectedIndex;
             int selectedAnimalIndex = ListWagon.SelectedIndex;
 
-            Animal selectedAnimal = Train1.Wagons[selectedWagonIndex].Animals[selectedAnimalIndex];
+            Animal selectedAnimal = Trains.Wagons[selectedWagonIndex].Animals[selectedAnimalIndex];
 
             LabelSelectedAnimal.Text = $"{selectedAnimal.Name}\n{selectedAnimal.Size}\n{selectedAnimal.getKind()}";
         }
@@ -90,7 +90,7 @@ namespace Casus___Circustrein
         private void ListTrain_SelectedIndexChanged(object sender, EventArgs e)
         {
             int selectedIndex = ListTrain.SelectedIndex;
-            Wagon selectedWagon = Train1.Wagons[selectedIndex];
+            Wagon selectedWagon = Trains.Wagons[selectedIndex];
 
             ListWagon.Items.Clear();
 

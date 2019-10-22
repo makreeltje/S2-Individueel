@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Casus___Circustrein
 {
-    internal class Animal
+    public class Animal
     {
         public enum Sizes
         { 
@@ -26,6 +26,11 @@ namespace Casus___Circustrein
             Size = size;
             Carnivore = carnivore;
             Name = name;
+        }
+
+        public Animal()
+        {
+
         }
 
         public override string ToString()

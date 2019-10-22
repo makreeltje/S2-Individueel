@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Puzzels___1
+namespace Puzzels___4_palindroom
 {
     public partial class Form1 : Form
     {
@@ -19,25 +19,13 @@ namespace Puzzels___1
 
         private void BtnCalculate_Click(object sender, EventArgs e)
         {
-            for (int i = 3; i < 1000; i = i + 3)
+            int a;
+            int b;
+
+            for (int i = 100; i < 999; i++)
             {
-                listBox1.Items.Add(i);
+                
             }
-
-            //for (int i = 5; i < 1000; i = i + 5)
-            //{
-            //    listBox1.Items.Add(i);
-            //}
-
-            int j = 0;
-
-            foreach (int item in listBox1.Items)
-            {
-                j = j + item;
-            }
-
-            label1.Text = j.ToString();
-
         }
     }
 }

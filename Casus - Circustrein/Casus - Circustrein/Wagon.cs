@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace Casus___Circustrein
 {
-    internal class Wagon
+    public class Wagon
     {
         public List<Animal> Animals = new List<Animal>();
         public int Space { get; private set; } = 10;
