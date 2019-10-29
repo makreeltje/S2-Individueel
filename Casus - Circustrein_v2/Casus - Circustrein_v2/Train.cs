@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Casus___Circustrein_v2
 {
-    internal class Train
+    public class Train
     {
         public List<Wagon> Wagons = new List<Wagon>();
 
@@ -20,8 +20,8 @@ namespace Casus___Circustrein_v2
 
         public List<Animal> SortAnimals(List<Animal> unorderedAnimals)
         {
-            return unorderedAnimals.OrderByDescending(Animal => Animal.Type)
-                .ThenByDescending(Animal => (int) Animal.Size).ToList();
+            return unorderedAnimals.OrderByDescending(animal => animal.Type)
+                .ThenByDescending(animal => (int) animal.Size).ToList();
         }
 
         public void FillWagon(List<Animal> allAnimals)
@@ -50,11 +50,6 @@ namespace Casus___Circustrein_v2
                     }
                 }
             }
-        }
-
-        public int CountWagons()
-        {
-            return Wagons.Count + 1;
         }
     }
 }

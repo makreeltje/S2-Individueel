@@ -27,6 +27,10 @@ namespace Casus___Circustrein_v2
         public Sizes Size;
         public Types Type;
 
+        public Animal()
+        {
+            
+        }
         public Animal(string name, Types type, Sizes size)
         {
             Name = name;
