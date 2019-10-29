@@ -14,9 +14,15 @@ namespace Casus___Circustrein_v2.Tests
         [TestMethod()]
         public void AddAnimalTest()
         {
+            Wagon wagon = new Wagon();
+            Animal animal = new Animal("animal", Animal.Types.Carnivore, Animal.Sizes.Big);
+            List<Animal> animals = new List<Animal>();
 
+            animals.Add(animal);
 
-            Assert.Fail();
+            bool match = wagon.AddAnimal(animal);
+
+            Assert.IsTrue(match);
         }
     }
 }

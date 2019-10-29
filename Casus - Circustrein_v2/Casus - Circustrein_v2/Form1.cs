@@ -44,6 +44,8 @@ namespace Casus___Circustrein_v2
             i = Animals.Count - 1;
 
             ListAnimals.Items.Add($"{Animals[i].Name} ({Animals[i].Size}, {Animals[i].Type})");
+
+            
         }
 
         private void ButtonCalculate_Click(object sender, EventArgs e)
@@ -60,6 +62,11 @@ namespace Casus___Circustrein_v2
             foreach (Wagon currentWagon in Trains.Wagons)
             {
                 ListTrains.Items.Add(currentWagon);
+            }
+
+            foreach (Animal item in Trains.SortAnimals(Animals))
+            {
+                listBox1.Items.Add($"{item.Name} ({item.Size}, {item.Type})");
             }
         }
 
