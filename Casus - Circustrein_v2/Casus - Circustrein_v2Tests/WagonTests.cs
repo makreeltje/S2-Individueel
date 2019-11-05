@@ -12,7 +12,7 @@ namespace Casus___Circustrein_v2.Tests
     public class WagonTests
     {
         [TestMethod()]
-        public void AddAnimalTest()
+        public void AddAnimal_CreateWagonWithAnimal_IsTrue()
         {
             Wagon wagon = new Wagon();
             Animal animal = new Animal("animal", Animal.Types.Carnivore, Animal.Sizes.Big);

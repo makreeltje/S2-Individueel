@@ -11,25 +11,27 @@ namespace Casus___Circustrein_v2.Tests
     [TestClass()]
     public class TrainTests
     {
-        Animal animals;
         Train trains;
-        Wagon wagons;
 
         [TestMethod()]
-        public void CreateOneAnimalTest()
+        public void Count_CreateAnimal_AreEqual()
         {
+            //arrange
             List<Animal> Animals = new List<Animal>();
             Animal newAnimal = new Animal("Tijger", Animal.Types.Carnivore, Animal.Sizes.Big);
             Animals.Add(newAnimal);
 
+            //act
             int amount = Animals.Count();
 
+            //assert
             Assert.AreEqual(1, amount);
         }
 
         [TestMethod()]
-        public void CreateAnimalsTest()
+        public void Count_CreateMultipleAnimals_AreEqual()
         {
+            //arrange
             List<Animal> Animals = new List<Animal>();
             for (int i = 0; i < 5; i++)
             {
@@ -46,14 +48,17 @@ namespace Casus___Circustrein_v2.Tests
                 }
             }
 
+            //act
             int amount = Animals.Count();
 
+            //assert
             Assert.AreEqual(30, amount);
         }
 
         [TestMethod()]
-        public void SortAnimalsTestFirstInList()
+        public void SortAnimals_CheckFirstAnimal_IsTrue()
         {
+            //arrange
             Train trains = new Train();
             List<Animal> animals = new List<Animal>();
             for (int i = 0; i < 5; i++)
@@ -71,14 +76,17 @@ namespace Casus___Circustrein_v2.Tests
                 }
             }
 
+            //act
             animals = trains.SortAnimals(animals);
 
+            //assert
             Assert.IsTrue(animals[0].Type == Animal.Types.Herbivore && animals[0].Size == Animal.Sizes.Big);
         }
 
         [TestMethod()]
-        public void SortAnimalsTestWholeList()
+        public void SortAnimals_CheckAllCreatedAnimals_IsTrue()
         {
+            //arrange
             trains = new Train();
             List<Animal> animals = new List<Animal>();
             for (int i = 0; i < 5; i++)
@@ -95,28 +103,23 @@ namespace Casus___Circustrein_v2.Tests
                     }
                 }
             }
-            
-            animals = trains.SortAnimals(animals);
-            int j = 0;
-            if (animals[0].Type == Animal.Types.Herbivore && animals[0].Size == Animal.Sizes.Big)
-                j++;
-            if (animals[5].Type == Animal.Types.Herbivore && animals[5].Size == Animal.Sizes.Medium)
-                j++;
-            if (animals[10].Type == Animal.Types.Herbivore && animals[10].Size == Animal.Sizes.Small)
-                j++;
-            if (animals[15].Type == Animal.Types.Carnivore && animals[15].Size == Animal.Sizes.Big)
-                j++;
-            if (animals[20].Type == Animal.Types.Carnivore && animals[20].Size == Animal.Sizes.Medium)
-                j++;
-            if (animals[25].Type == Animal.Types.Carnivore && animals[25].Size == Animal.Sizes.Small)
-                j++;
 
-            Assert.AreEqual(6, j);
+            //act
+            animals = trains.SortAnimals(animals);
+
+            //assert
+            Assert.IsTrue(animals[0].Type == Animal.Types.Herbivore && animals[0].Size == Animal.Sizes.Big);
+            Assert.IsTrue(animals[5].Type == Animal.Types.Herbivore && animals[5].Size == Animal.Sizes.Medium);
+            Assert.IsTrue(animals[10].Type == Animal.Types.Herbivore && animals[10].Size == Animal.Sizes.Small);
+            Assert.IsTrue(animals[15].Type == Animal.Types.Carnivore && animals[15].Size == Animal.Sizes.Big);
+            Assert.IsTrue(animals[20].Type == Animal.Types.Carnivore && animals[20].Size == Animal.Sizes.Medium);
+            Assert.IsTrue(animals[25].Type == Animal.Types.Carnivore && animals[25].Size == Animal.Sizes.Small);
         }
 
         [TestMethod()]
-        public void FillWagonTest()
+        public void FillWagon_CreateWagons_AreEqual()
         {
+            //arrange
             trains = new Train();
             List<Animal> animals = new List<Animal>();
             List<Wagon> wagons = new List<Wagon>();
@@ -135,11 +138,11 @@ namespace Casus___Circustrein_v2.Tests
                 }
             }
 
+            //act
             trains.FillWagon(animals);
 
-            int j = trains.Wagons.Count();
-
-            Assert.AreEqual(20, j);
+            //assert
+            Assert.AreEqual(20, trains.Wagons.Count());
         }
     }
 }
