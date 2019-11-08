@@ -13,6 +13,7 @@ namespace Casus___Containervervoer
     public partial class Form1 : Form
     {
         private readonly List<Container> _containers;
+        private Ship ship;
         public Form1()
         {
             _containers = new List<Container>();
@@ -36,6 +37,13 @@ namespace Casus___Containervervoer
 
             lblContainerTotal.Text = listContainers.Items.Count.ToString();
 
+        }
+
+        private void btnSetShipWeight_Click(object sender, System.EventArgs e)
+        {
+            ship = new Ship((int)numShipWeight.Value);
+            btnSetShipWeight.Enabled = false;
+            btnAddContainer.Enabled = true;
         }
     }
 }

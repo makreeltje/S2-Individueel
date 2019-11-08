@@ -108,6 +108,7 @@
             this.btnSetShipWeight.TabIndex = 2;
             this.btnSetShipWeight.Text = "Set Weight";
             this.btnSetShipWeight.UseVisualStyleBackColor = true;
+            this.btnSetShipWeight.Click += new System.EventHandler(this.btnSetShipWeight_Click);
             // 
             // gbContainerSetUp
             // 
@@ -126,6 +127,7 @@
             // 
             // btnAddContainer
             // 
+            this.btnAddContainer.Enabled = false;
             this.btnAddContainer.Location = new System.Drawing.Point(6, 127);
             this.btnAddContainer.Name = "btnAddContainer";
             this.btnAddContainer.Size = new System.Drawing.Size(123, 23);
@@ -257,9 +259,9 @@
             this.lblContainerTotal.AutoSize = true;
             this.lblContainerTotal.Location = new System.Drawing.Point(224, 228);
             this.lblContainerTotal.Name = "lblContainerTotal";
-            this.lblContainerTotal.Size = new System.Drawing.Size(19, 13);
+            this.lblContainerTotal.Size = new System.Drawing.Size(13, 13);
             this.lblContainerTotal.TabIndex = 4;
-            this.lblContainerTotal.Text = "00";
+            this.lblContainerTotal.Text = "0";
             // 
             // Form1
             // 
