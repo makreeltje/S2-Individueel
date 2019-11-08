@@ -45,11 +45,21 @@
             this.btnContainerDeleteAll = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.lblContainerTotal = new System.Windows.Forms.Label();
+            this.rtbLog = new System.Windows.Forms.RichTextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.gbSetUp.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numShipWeight)).BeginInit();
             this.gbContainerSetUp.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numContainerWeight)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // gbSetUp
@@ -57,7 +67,7 @@
             this.gbSetUp.Controls.Add(this.btnSetShipWeight);
             this.gbSetUp.Controls.Add(this.label1);
             this.gbSetUp.Controls.Add(this.numShipWeight);
-            this.gbSetUp.Location = new System.Drawing.Point(13, 13);
+            this.gbSetUp.Location = new System.Drawing.Point(13, 12);
             this.gbSetUp.Name = "gbSetUp";
             this.gbSetUp.Size = new System.Drawing.Size(135, 90);
             this.gbSetUp.TabIndex = 0;
@@ -118,7 +128,7 @@
             this.gbContainerSetUp.Controls.Add(this.btnAddContainer);
             this.gbContainerSetUp.Controls.Add(this.label2);
             this.gbContainerSetUp.Controls.Add(this.numContainerWeight);
-            this.gbContainerSetUp.Location = new System.Drawing.Point(13, 109);
+            this.gbContainerSetUp.Location = new System.Drawing.Point(13, 108);
             this.gbContainerSetUp.Name = "gbContainerSetUp";
             this.gbContainerSetUp.Size = new System.Drawing.Size(135, 159);
             this.gbContainerSetUp.TabIndex = 3;
@@ -154,12 +164,12 @@
             0});
             this.numContainerWeight.Location = new System.Drawing.Point(6, 32);
             this.numContainerWeight.Maximum = new decimal(new int[] {
-            30000,
+            100000,
             0,
             0,
             0});
             this.numContainerWeight.Minimum = new decimal(new int[] {
-            4000,
+            1000,
             0,
             0,
             0});
@@ -189,7 +199,6 @@
             this.rbContainerCooled.Name = "rbContainerCooled";
             this.rbContainerCooled.Size = new System.Drawing.Size(58, 17);
             this.rbContainerCooled.TabIndex = 4;
-            this.rbContainerCooled.TabStop = true;
             this.rbContainerCooled.Text = "Cooled";
             this.rbContainerCooled.UseVisualStyleBackColor = true;
             // 
@@ -207,12 +216,10 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.lblContainerTotal);
-            this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.btnContainerDeleteAll);
             this.groupBox1.Controls.Add(this.btnContainerDelete);
             this.groupBox1.Controls.Add(this.listContainers);
-            this.groupBox1.Location = new System.Drawing.Point(154, 13);
+            this.groupBox1.Location = new System.Drawing.Point(154, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(312, 255);
             this.groupBox1.TabIndex = 4;
@@ -248,26 +255,110 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(249, 228);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(61, 47);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(57, 13);
+            this.label3.Size = new System.Drawing.Size(67, 13);
             this.label3.TabIndex = 3;
             this.label3.Text = "Containers";
             // 
             // lblContainerTotal
             // 
             this.lblContainerTotal.AutoSize = true;
-            this.lblContainerTotal.Location = new System.Drawing.Point(224, 228);
+            this.lblContainerTotal.Location = new System.Drawing.Point(147, 47);
             this.lblContainerTotal.Name = "lblContainerTotal";
-            this.lblContainerTotal.Size = new System.Drawing.Size(13, 13);
+            this.lblContainerTotal.Size = new System.Drawing.Size(106, 13);
             this.lblContainerTotal.TabIndex = 4;
-            this.lblContainerTotal.Text = "0";
+            this.lblContainerTotal.Text = "No containers added";
+            // 
+            // rtbLog
+            // 
+            this.rtbLog.Location = new System.Drawing.Point(6, 19);
+            this.rtbLog.Name = "rtbLog";
+            this.rtbLog.Size = new System.Drawing.Size(304, 47);
+            this.rtbLog.TabIndex = 5;
+            this.rtbLog.Text = "";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.button1);
+            this.groupBox2.Controls.Add(this.rtbLog);
+            this.groupBox2.Location = new System.Drawing.Point(472, 12);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(316, 101);
+            this.groupBox2.TabIndex = 6;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Log";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.label7);
+            this.groupBox3.Controls.Add(this.label6);
+            this.groupBox3.Controls.Add(this.label5);
+            this.groupBox3.Controls.Add(this.label4);
+            this.groupBox3.Controls.Add(this.lblContainerTotal);
+            this.groupBox3.Controls.Add(this.label3);
+            this.groupBox3.Location = new System.Drawing.Point(475, 119);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(310, 148);
+            this.groupBox3.TabIndex = 7;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Statistics";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(61, 67);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(76, 13);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "Ship Weight";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(147, 67);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(72, 13);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "No weight set";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(61, 87);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(82, 13);
+            this.label6.TabIndex = 7;
+            this.label6.Text = "Ship Balance";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(147, 87);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(104, 13);
+            this.label7.TabIndex = 8;
+            this.label7.Text = "No calculation made";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(6, 72);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(304, 23);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Complete log";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.gbContainerSetUp);
             this.Controls.Add(this.gbSetUp);
@@ -280,7 +371,9 @@
             this.gbContainerSetUp.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numContainerWeight)).EndInit();
             this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -304,6 +397,14 @@
         private System.Windows.Forms.Button btnContainerDeleteAll;
         private System.Windows.Forms.Button btnContainerDelete;
         private System.Windows.Forms.ListBox listContainers;
+        private System.Windows.Forms.RichTextBox rtbLog;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button button1;
     }
 }
 
