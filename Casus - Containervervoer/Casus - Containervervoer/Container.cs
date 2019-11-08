@@ -25,9 +25,17 @@ namespace Casus___Containervervoer
             Weight = weight;
         }
 
-        public bool CheckWeightContainer()
+        public string CheckWeightContainer(int weight)
         {
-            return true;
+            if (weight < 4000)
+            {
+
+                return $"Sorry but the weight of the container you're trying to add is too low. The weight needs to be between 4 and 30 tons. The current weight of the container is {weight / 1000} tons. ";
+            }
+            else
+            {
+                return $"Sorry but the weight of the container you're trying to add is too high. The weight needs to be between 4 and 30 tons. The current weight of the container is {weight / 1000} tons. ";
+            }
         }
 
         public override string ToString()

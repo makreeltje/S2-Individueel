@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -7,6 +8,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Casus___Containervervoer
 {
@@ -25,14 +27,14 @@ namespace Casus___Containervervoer
             int weight = (int)numContainerWeight.Value;
             Container.Categories cat;
 
+            if (rbContainerCooled.Checked) { cat = Casus___Containervervoer.Container.Categories.Cooled; }
+            else if (rbContainerValuable.Checked) { cat = Casus___Containervervoer.Container.Categories.Valuable; }
+            else { cat = Casus___Containervervoer.Container.Categories.Standard; }
+
+            var container = new Container(cat, weight);
+
             if (numContainerWeight.Value >= 4000 && numContainerWeight.Value <= 30000)
             {
-                if (rbContainerCooled.Checked) { cat = Casus___Containervervoer.Container.Categories.Cooled; }
-                else if (rbContainerValuable.Checked) { cat = Casus___Containervervoer.Container.Categories.Valuable; }
-                else { cat = Casus___Containervervoer.Container.Categories.Standard; }
-
-                var container = new Container(cat, weight);
-
                 _containers.Add(container);
 
                 listContainers.Items.Add(container);
@@ -43,18 +45,9 @@ namespace Casus___Containervervoer
                 lblContainerTotal.Text = listContainers.Items.Count.ToString();
             }
             else
-            {
+            { 
                 rtbLog.ForeColor = Color.Red;
-                if (numContainerWeight.Value < 4000)
-                {
-                    
-                    rtbLog.Text =
-                        $"Sorry but the weight of the container you're trying to add is too low. The weight needs to be between 4 and 30 tons. The current weight of the container is {numContainerWeight.Value / 1000} tons. ";
-                }
-                else
-                {
-                    rtbLog.Text = $"Sorry but the weight of the container you're trying to add is too high. The weight needs to be between 4 and 30 tons. The current weight of the container is {numContainerWeight.Value / 1000} tons. ";
-                }
+                rtbLog.Text = container.CheckWeightContainer(weight);
             }
 
         }
@@ -64,6 +57,8 @@ namespace Casus___Containervervoer
             ship = new Ship((int)numShipWeight.Value);
             btnSetShipWeight.Enabled = false;
             btnAddContainer.Enabled = true;
+            rtbLog.ForeColor = Color.Green;
+            rtbLog.Text = $"The weight of the ship has been set to {ship.Weight}";
         }
     }
 }
