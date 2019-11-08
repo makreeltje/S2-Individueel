@@ -53,6 +53,13 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.listPlace1 = new System.Windows.Forms.ListBox();
+            this.listPlace2 = new System.Windows.Forms.ListBox();
+            this.listPlace4 = new System.Windows.Forms.ListBox();
+            this.listPlace3 = new System.Windows.Forms.ListBox();
+            this.listPlace6 = new System.Windows.Forms.ListBox();
+            this.listPlace5 = new System.Windows.Forms.ListBox();
             this.gbSetUp.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numShipWeight)).BeginInit();
             this.gbContainerSetUp.SuspendLayout();
@@ -60,6 +67,7 @@
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // gbSetUp
@@ -67,7 +75,7 @@
             this.gbSetUp.Controls.Add(this.btnSetShipWeight);
             this.gbSetUp.Controls.Add(this.label1);
             this.gbSetUp.Controls.Add(this.numShipWeight);
-            this.gbSetUp.Location = new System.Drawing.Point(13, 12);
+            this.gbSetUp.Location = new System.Drawing.Point(12, 12);
             this.gbSetUp.Name = "gbSetUp";
             this.gbSetUp.Size = new System.Drawing.Size(135, 90);
             this.gbSetUp.TabIndex = 0;
@@ -128,7 +136,7 @@
             this.gbContainerSetUp.Controls.Add(this.btnAddContainer);
             this.gbContainerSetUp.Controls.Add(this.label2);
             this.gbContainerSetUp.Controls.Add(this.numContainerWeight);
-            this.gbContainerSetUp.Location = new System.Drawing.Point(13, 108);
+            this.gbContainerSetUp.Location = new System.Drawing.Point(12, 108);
             this.gbContainerSetUp.Name = "gbContainerSetUp";
             this.gbContainerSetUp.Size = new System.Drawing.Size(135, 159);
             this.gbContainerSetUp.TabIndex = 3;
@@ -354,11 +362,75 @@
             this.button1.Text = "Complete log";
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.listPlace6);
+            this.groupBox4.Controls.Add(this.listPlace5);
+            this.groupBox4.Controls.Add(this.listPlace4);
+            this.groupBox4.Controls.Add(this.listPlace3);
+            this.groupBox4.Controls.Add(this.listPlace2);
+            this.groupBox4.Controls.Add(this.listPlace1);
+            this.groupBox4.Location = new System.Drawing.Point(12, 273);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(776, 165);
+            this.groupBox4.TabIndex = 8;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Ship";
+            // 
+            // listPlace1
+            // 
+            this.listPlace1.FormattingEnabled = true;
+            this.listPlace1.Location = new System.Drawing.Point(6, 19);
+            this.listPlace1.Name = "listPlace1";
+            this.listPlace1.Size = new System.Drawing.Size(250, 69);
+            this.listPlace1.TabIndex = 0;
+            // 
+            // listPlace2
+            // 
+            this.listPlace2.FormattingEnabled = true;
+            this.listPlace2.Location = new System.Drawing.Point(6, 90);
+            this.listPlace2.Name = "listPlace2";
+            this.listPlace2.Size = new System.Drawing.Size(250, 69);
+            this.listPlace2.TabIndex = 1;
+            // 
+            // listPlace4
+            // 
+            this.listPlace4.FormattingEnabled = true;
+            this.listPlace4.Location = new System.Drawing.Point(263, 90);
+            this.listPlace4.Name = "listPlace4";
+            this.listPlace4.Size = new System.Drawing.Size(250, 69);
+            this.listPlace4.TabIndex = 3;
+            // 
+            // listPlace3
+            // 
+            this.listPlace3.FormattingEnabled = true;
+            this.listPlace3.Location = new System.Drawing.Point(263, 19);
+            this.listPlace3.Name = "listPlace3";
+            this.listPlace3.Size = new System.Drawing.Size(250, 69);
+            this.listPlace3.TabIndex = 2;
+            // 
+            // listPlace6
+            // 
+            this.listPlace6.FormattingEnabled = true;
+            this.listPlace6.Location = new System.Drawing.Point(520, 90);
+            this.listPlace6.Name = "listPlace6";
+            this.listPlace6.Size = new System.Drawing.Size(250, 69);
+            this.listPlace6.TabIndex = 5;
+            // 
+            // listPlace5
+            // 
+            this.listPlace5.FormattingEnabled = true;
+            this.listPlace5.Location = new System.Drawing.Point(520, 19);
+            this.listPlace5.Name = "listPlace5";
+            this.listPlace5.Size = new System.Drawing.Size(250, 69);
+            this.listPlace5.TabIndex = 4;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 447);
+            this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -376,6 +448,7 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -407,6 +480,13 @@
         private System.Windows.Forms.Label lblShipWeight;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.ListBox listPlace6;
+        private System.Windows.Forms.ListBox listPlace5;
+        private System.Windows.Forms.ListBox listPlace4;
+        private System.Windows.Forms.ListBox listPlace3;
+        private System.Windows.Forms.ListBox listPlace2;
+        private System.Windows.Forms.ListBox listPlace1;
     }
 }
 
