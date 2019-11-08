@@ -7,16 +7,27 @@ using System.Threading.Tasks;
 
 namespace Casus___Containervervoer
 {
-    class Container
+    public class Container
     {
-        public enum category
+        public enum Categories
         {
-            valuable,
-            cooled,
-            standard
+            Valuable,
+            Cooled,
+            Standard
         }
 
-        public category Categories { get; set; }
+        public Categories Category;
         public int Weight { get; set; }
+
+        public Container(Categories cat, int weight)
+        {
+            Category = cat;
+            Weight = weight;
+        }
+
+        public bool CheckWeightContainer()
+        {
+            return true;
+        }
     }
 }
