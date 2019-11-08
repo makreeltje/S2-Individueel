@@ -59,6 +59,35 @@ namespace Casus___Containervervoer
             btnAddContainer.Enabled = true;
             rtbLog.ForeColor = Color.Green;
             rtbLog.Text = $"The weight of the ship has been set to {ship.Weight}";
+            lblShipWeight.Text = ship.Weight.ToString();
+        }
+
+        private void btnContainerDelete_Click(object sender, EventArgs e)
+        {
+            int index = listContainers.SelectedIndex;
+
+            if (index == -1)
+            {
+                rtbLog.ForeColor = Color.Red;
+                rtbLog.Text = "No container has been selected";
+                return;
+            }
+
+            rtbLog.ForeColor = Color.Green;
+            rtbLog.Text = $"Container ({listContainers.SelectedItem}) has been removed succesfully";
+            listContainers.Items.RemoveAt(index);
+            _containers.RemoveAt(index);
+            lblContainerTotal.Text = listContainers.Items.Count.ToString();
+        }
+
+        private void btnContainerDeleteAll_Click(object sender, EventArgs e)
+        {
+            listContainers.Items.Clear();
+            _containers.Clear();
+            rtbLog.ForeColor = Color.Green;
+            rtbLog.Text = $"All containers have been removed";
+            lblContainerTotal.Text = "No containers added";
+
         }
     }
 }

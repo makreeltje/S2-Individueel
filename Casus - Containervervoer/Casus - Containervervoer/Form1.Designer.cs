@@ -49,7 +49,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lblShipWeight = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -242,6 +242,7 @@
             this.btnContainerDelete.TabIndex = 1;
             this.btnContainerDelete.Text = "Delete";
             this.btnContainerDelete.UseVisualStyleBackColor = true;
+            this.btnContainerDelete.Click += new System.EventHandler(this.btnContainerDelete_Click);
             // 
             // btnContainerDeleteAll
             // 
@@ -251,6 +252,7 @@
             this.btnContainerDeleteAll.TabIndex = 2;
             this.btnContainerDeleteAll.Text = "Delete All";
             this.btnContainerDeleteAll.UseVisualStyleBackColor = true;
+            this.btnContainerDeleteAll.Click += new System.EventHandler(this.btnContainerDeleteAll_Click);
             // 
             // label3
             // 
@@ -294,7 +296,7 @@
             // 
             this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Controls.Add(this.label6);
-            this.groupBox3.Controls.Add(this.label5);
+            this.groupBox3.Controls.Add(this.lblShipWeight);
             this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Controls.Add(this.lblContainerTotal);
             this.groupBox3.Controls.Add(this.label3);
@@ -315,14 +317,14 @@
             this.label4.TabIndex = 5;
             this.label4.Text = "Ship Weight";
             // 
-            // label5
+            // lblShipWeight
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(147, 67);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(72, 13);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "No weight set";
+            this.lblShipWeight.AutoSize = true;
+            this.lblShipWeight.Location = new System.Drawing.Point(147, 67);
+            this.lblShipWeight.Name = "lblShipWeight";
+            this.lblShipWeight.Size = new System.Drawing.Size(72, 13);
+            this.lblShipWeight.TabIndex = 6;
+            this.lblShipWeight.Text = "No weight set";
             // 
             // label6
             // 
@@ -402,7 +404,7 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblShipWeight;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button1;
     }
