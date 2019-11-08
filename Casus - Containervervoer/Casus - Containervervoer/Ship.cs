@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Casus___Containervervoer
 {
-    internal class Ship
+    public class Ship
     {
         public int MaxWeight { get; set; }
         public int MinWeight { get; set; }
@@ -14,10 +14,11 @@ namespace Casus___Containervervoer
         public int WeightLeft { get; set; }
         public int WeightRight { get; set; }
 
-        public Ship()
-        {
-            
-        }
+        //public Ship(int length, int width)
+        //{
+        //    Length = length;
+        //    Width = width;
+        //}
     }
     
     

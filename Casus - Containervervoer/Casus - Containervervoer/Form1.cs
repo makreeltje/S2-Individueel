@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -13,19 +12,29 @@ namespace Casus___Containervervoer
 {
     public partial class Form1 : Form
     {
-        Ship Ships = new Ship();
-        public List<Container> Containers = new List<Container>();
-        public Container con;
+        private readonly List<Container> _containers;
         public Form1()
         {
+            _containers = new List<Container>();
             InitializeComponent();
         }
 
-        private void btnAddContainerToList_Click(object sender, EventArgs e)
+        private void btnAddContainer_Click(object sender, System.EventArgs e)
         {
-            string name = txtContainerName.Text;
-            con.Category cat;
-            con.Weight weight;
+            int weight = (int)numContainerWeight.Value;
+            Container.Categories cat;
+
+            if (rbContainerCooled.Checked) { cat = Casus___Containervervoer.Container.Categories.Cooled; }
+            else if (rbContainerValuable.Checked) { cat = Casus___Containervervoer.Container.Categories.Valuable; }
+            else { cat = Casus___Containervervoer.Container.Categories.Standard; }
+
+            var container = new Container(cat, weight);
+
+            _containers.Add(container);
+
+            listContainers.Items.Add(container);
+
+            lblContainerTotal.Text = listContainers.Items.Count.ToString();
 
         }
     }

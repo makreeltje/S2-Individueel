@@ -29,5 +29,10 @@ namespace Casus___Containervervoer
         {
             return true;
         }
+
+        public override string ToString()
+        {
+            return $"Weight: {Weight}, Caterogy: {Category}";
+        }
     }
 }
