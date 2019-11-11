@@ -38,6 +38,25 @@ namespace Casus___Containervervoer
             }
         }
 
+        public bool CheckTotalWeightContainer(int shipWeight, List<Container> containers)
+        {
+            int totalWeight = 0;
+            foreach (var item in containers)
+            {
+                totalWeight += item.Weight;
+            }
+
+            if (totalWeight > shipWeight)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+
+        }
+
         public override string ToString()
         {
             return $"Weight: {Weight}, Caterogy: {Category}";

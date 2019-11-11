@@ -64,6 +64,8 @@
             this.lblContainerWeight = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.lblFront = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.gbSetUp.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numShipWeight)).BeginInit();
             this.gbContainerSetUp.SuspendLayout();
@@ -362,6 +364,8 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.label6);
+            this.groupBox4.Controls.Add(this.lblFront);
             this.groupBox4.Controls.Add(this.listPlace6);
             this.groupBox4.Controls.Add(this.listPlace5);
             this.groupBox4.Controls.Add(this.listPlace4);
@@ -378,49 +382,49 @@
             // listPlace6
             // 
             this.listPlace6.FormattingEnabled = true;
-            this.listPlace6.Location = new System.Drawing.Point(520, 90);
+            this.listPlace6.Location = new System.Drawing.Point(513, 90);
             this.listPlace6.Name = "listPlace6";
-            this.listPlace6.Size = new System.Drawing.Size(250, 69);
+            this.listPlace6.Size = new System.Drawing.Size(230, 69);
             this.listPlace6.TabIndex = 5;
             // 
             // listPlace5
             // 
             this.listPlace5.FormattingEnabled = true;
-            this.listPlace5.Location = new System.Drawing.Point(520, 19);
+            this.listPlace5.Location = new System.Drawing.Point(513, 19);
             this.listPlace5.Name = "listPlace5";
-            this.listPlace5.Size = new System.Drawing.Size(250, 69);
+            this.listPlace5.Size = new System.Drawing.Size(230, 69);
             this.listPlace5.TabIndex = 4;
             // 
             // listPlace4
             // 
             this.listPlace4.FormattingEnabled = true;
-            this.listPlace4.Location = new System.Drawing.Point(263, 90);
+            this.listPlace4.Location = new System.Drawing.Point(273, 91);
             this.listPlace4.Name = "listPlace4";
-            this.listPlace4.Size = new System.Drawing.Size(250, 69);
+            this.listPlace4.Size = new System.Drawing.Size(230, 69);
             this.listPlace4.TabIndex = 3;
             // 
             // listPlace3
             // 
             this.listPlace3.FormattingEnabled = true;
-            this.listPlace3.Location = new System.Drawing.Point(263, 19);
+            this.listPlace3.Location = new System.Drawing.Point(273, 16);
             this.listPlace3.Name = "listPlace3";
-            this.listPlace3.Size = new System.Drawing.Size(250, 69);
+            this.listPlace3.Size = new System.Drawing.Size(230, 69);
             this.listPlace3.TabIndex = 2;
             // 
             // listPlace2
             // 
             this.listPlace2.FormattingEnabled = true;
-            this.listPlace2.Location = new System.Drawing.Point(6, 90);
+            this.listPlace2.Location = new System.Drawing.Point(34, 90);
             this.listPlace2.Name = "listPlace2";
-            this.listPlace2.Size = new System.Drawing.Size(250, 69);
+            this.listPlace2.Size = new System.Drawing.Size(230, 69);
             this.listPlace2.TabIndex = 1;
             // 
             // listPlace1
             // 
             this.listPlace1.FormattingEnabled = true;
-            this.listPlace1.Location = new System.Drawing.Point(6, 19);
+            this.listPlace1.Location = new System.Drawing.Point(34, 16);
             this.listPlace1.Name = "listPlace1";
-            this.listPlace1.Size = new System.Drawing.Size(250, 69);
+            this.listPlace1.Size = new System.Drawing.Size(230, 69);
             this.listPlace1.TabIndex = 0;
             // 
             // label5
@@ -471,6 +475,26 @@
             this.label11.Size = new System.Drawing.Size(53, 13);
             this.label11.TabIndex = 13;
             this.label11.Text = "Balance";
+            // 
+            // lblFront
+            // 
+            this.lblFront.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFront.Location = new System.Drawing.Point(6, 16);
+            this.lblFront.Name = "lblFront";
+            this.lblFront.Size = new System.Drawing.Size(22, 143);
+            this.lblFront.TabIndex = 6;
+            this.lblFront.Text = "F\r\nR\r\nO\r\nN\r\nT";
+            this.lblFront.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label6
+            // 
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(749, 16);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(21, 143);
+            this.label6.TabIndex = 7;
+            this.label6.Text = "B\r\nA\r\nC\r\nK";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Form1
             // 
@@ -538,6 +562,8 @@
         private System.Windows.Forms.Label lblContainerWeight;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblFront;
+        private System.Windows.Forms.Label label6;
     }
 }
 

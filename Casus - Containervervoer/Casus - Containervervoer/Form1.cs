@@ -45,6 +45,12 @@ namespace Casus___Containervervoer
 
                 lblContainerTotal.Text = listContainers.Items.Count.ToString();
 
+                if (!container.CheckTotalWeightContainer(ship.Weight, _containers))
+                {
+                    rtbLog.ForeColor = Color.Red;
+                    rtbLog.Text = $"The total weight of the containers exceeds the weight of the ship. Please remove a container to continue";
+                }
+
                 foreach (var item in _containers)
                 {
                     totalWeight += item.Weight;
