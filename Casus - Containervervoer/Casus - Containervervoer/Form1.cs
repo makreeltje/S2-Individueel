@@ -32,6 +32,7 @@ namespace Casus___Containervervoer
             else { cat = Casus___Containervervoer.Container.Categories.Standard; }
 
             var container = new Container(cat, weight);
+            int totalWeight = 0;
 
             if (numContainerWeight.Value >= 4000 && numContainerWeight.Value <= 30000)
             {
@@ -43,6 +44,15 @@ namespace Casus___Containervervoer
                 rtbLog.Text = $"Container ({container}) has been added succesfully";
 
                 lblContainerTotal.Text = listContainers.Items.Count.ToString();
+
+                foreach (var item in _containers)
+                {
+                    totalWeight += item.Weight;
+                }
+
+                totalWeight = totalWeight / 1000;
+
+                lblContainerWeight.Text = $"{totalWeight} tons";
             }
             else
             { 
@@ -58,8 +68,8 @@ namespace Casus___Containervervoer
             btnSetShipWeight.Enabled = false;
             btnAddContainer.Enabled = true;
             rtbLog.ForeColor = Color.Green;
-            rtbLog.Text = $"The weight of the ship has been set to {ship.Weight}";
-            lblShipWeight.Text = ship.Weight.ToString();
+            rtbLog.Text = $"The weight of the ship has been set to {ship.Weight / 1000} tons";
+            lblShipWeight.Text = $"{ship.Weight / 1000} tons";
         }
 
         private void btnContainerDelete_Click(object sender, EventArgs e)

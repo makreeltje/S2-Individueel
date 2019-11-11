@@ -1,0 +1,216 @@
+commit dedf26682f27b1f5dda5bbf4fb2bcdde417f542c
+Author: Rick Meels <rick.meels@gmail.com>
+Date:   Fri Nov 8 17:06:31 2019 +0100
+
+    Containervervoer
+    
+    - Added UI elements for final ship calculation
+
+commit ef37eed13e8b43cfca820a82fa3cdda17989d28e
+Author: Rick Meels <rick.meels@gmail.com>
+Date:   Fri Nov 8 16:59:43 2019 +0100
+
+    Containervervoer
+    
+    - Added log entry if you remove a container
+    - Added log entry if you remove all containers
+
+commit 478d70bd6e173f1414de3794beb636b0b04cb25a
+Author: Rick Meels <rick.meels@gmail.com>
+Date:   Fri Nov 8 16:48:58 2019 +0100
+
+    Containervervoer
+    
+    - Changed check container weight to the class container
+    - Added log entry when ship weight has been set
+
+commit 9f14a8bee312e5b00c0742bffc8422dd88859099
+Author: Rick Meels <rick.meels@gmail.com>
+Date:   Fri Nov 8 15:27:54 2019 +0100
+
+    Containervervoer
+    
+    - Changed form design to read logs
+    - Added functionality to create log string if container was succesfully added
+    - Added functionality to create log string if container added has failed to add. Including the reason
+
+commit 445709cfda85841c7b17f69b870db99915c9af39
+Author: Rick Meels <rick.meels@gmail.com>
+Date:   Fri Nov 8 15:05:05 2019 +0100
+
+    Containervervoer
+    
+    - Added functionality to create a ship instance
+    - Added functionality to set weight of ship
+    - Added functionality to disable set weight button for ship when weight has been set
+    - Added functionality to enable add container button for container when weight has been set
+
+commit 13abc9f92debab8448ec0d965b152044a289df5d
+Author: Rick Meels <rick.meels@gmail.com>
+Date:   Fri Nov 8 15:00:37 2019 +0100
+
+    Containervervoer
+    
+    - Added functionality to add container instances
+    - Added functionality to add container to list
+    - Added list container in form
+    - Changed form look
+    - Changed properties of ship
+
+commit 52bbe2a5e8baa965988de6686617f9dc736a8921
+Author: Rick Meels <rick.meels@gmail.com>
+Date:   Fri Nov 8 11:05:38 2019 +0100
+
+    Classes
+    
+    - Added classes
+    - Added properties to classes
+    - Small form changes
+
+commit 20d7befa864ee5110bcf93a62143aad4ad91e7c6
+Author: Rick Meels <rick.meels@gmail.com>
+Date:   Wed Nov 6 14:12:18 2019 +0100
+
+    First step Casus - ContainerVervoer
+    
+    - Added application Casus - Containervervoer
+    - Added 3 classes with props (Place, Ship, Container)
+
+commit 66c4110064a68367f38e2c5c5aa7111cf065a75c
+Author: Rick Meels <rick.meels@gmail.com>
+Date:   Tue Nov 5 15:10:24 2019 +0100
+
+    Changed Unit test names and altered unit test
+
+commit a8f20b48324df17446926f80bc60c0741a5cc280
+Author: Rick Meels <rick.meels@gmail.com>
+Date:   Tue Oct 29 16:50:21 2019 +0100
+
+    Completed Unit tests
+
+commit acaa1313c48fa5f7023ca4a55d8788cbb35dadb1
+Author: Rick Meels <rick.meels@gmail.com>
+Date:   Tue Oct 29 14:12:58 2019 +0100
+
+    Update on unit test
+
+commit c58b6afc1c1a5d0f54e5d398ffd742e1b339c4ab
+Author: Rick Meels <rick.meels@gmail.com>
+Date:   Mon Oct 28 14:45:02 2019 +0100
+
+    Update on unit tests
+
+commit db8799525ef946364947c74a09e1734b798b9dcc
+Merge: 5ae689e d971eb6
+Author: Rick Meels <rick.meels@gmail.com>
+Date:   Tue Oct 22 21:32:38 2019 +0200
+
+    Merge remote-tracking branch 'origin/master'
+
+commit 5ae689e1de9b7933eec64d73eeaf5b6f1f0f1cfc
+Author: Rick Meels <rick.meels@gmail.com>
+Date:   Tue Oct 22 21:31:54 2019 +0200
+
+    big gay
+
+commit d971eb6f50e5b12046ab2191c819289553213a77
+Author: Rick Meels <rick.meels@gmail.com>
+Date:   Tue Sep 24 11:06:22 2019 +0200
+
+    Removed KillerApp from repo
+
+commit de1bd706d2c5d95cb2980f947e15db65b6a3d2bd
+Author: Rick Meels <rick.meels@gmail.com>
+Date:   Thu Sep 19 15:03:14 2019 +0200
+
+    Auto stash before merge of "master" and "origin/master"
+
+commit 51eeeb5273444f42b48eff241734d02b796af714
+Author: Rick Meels <rick.meels@gmail.com>
+Date:   Wed Sep 18 15:00:59 2019 +0200
+
+    Changed name
+
+commit afb3edbad5e3159a50cd866ccd7636ce7f3107e2
+Author: Rick Meels <rick.meels@gmail.com>
+Date:   Wed Sep 18 14:59:57 2019 +0200
+
+    Changed name
+
+commit 069d863b2db9cf66bd7bdd0ba0c653f486123a9b
+Author: Rick Meels <rick.meels@gmail.com>
+Date:   Wed Sep 18 14:58:24 2019 +0200
+
+    Changed name
+
+commit f9ad2b64ab591e75f52aef1482abc139776bb281
+Author: Rick Meels <rick.meels@gmail.com>
+Date:   Wed Sep 18 14:56:12 2019 +0200
+
+    Created prime factor
+
+commit 32f42d4748d83b13428aad8465c189b0f88b189f
+Author: Rick Meels <rick.meels@gmail.com>
+Date:   Wed Sep 18 14:48:24 2019 +0200
+
+    Created puzzels 2
+
+commit fd2a5ac300aa6d04830370268152e0d26df8113d
+Merge: d722af2 7544a49
+Author: Rick Meels <rick.meels@gmail.com>
+Date:   Wed Sep 18 14:32:43 2019 +0200
+
+    Merge remote-tracking branch 'origin/master'
+
+commit d722af21d40f624790b036eb904445800b89a007
+Author: Rick Meels <rick.meels@gmail.com>
+Date:   Wed Sep 18 14:31:44 2019 +0200
+
+    Created app
+
+commit 7544a49eaa83ed883f9994e86f4ee326c5d82513
+Author: Rick Meels <rick.meels@gmail.com>
+Date:   Wed Sep 11 11:44:48 2019 +0200
+
+    Update 4
+    - Changed flesheater and planteater strings to Carnivore and Herbivore
+
+commit d876767ddca5336675558a66aeeb7d122e59b430
+Author: Rick Meels <rick.meels@gmail.com>
+Date:   Tue Sep 10 15:38:38 2019 +0200
+
+    Update 3
+    - Rewrite of whole code
+    - Added new class Train to see which animal is in which wagon
+
+commit 77ddc0f9eeb875bf2a9bd18d36b5b284cdc42663
+Author: Rick Meels <rick.meels@gmail.com>
+Date:   Tue Sep 10 08:55:06 2019 +0200
+
+    Update 2
+    - Changed classes to give a better maintainable code
+
+commit bc45476a322f339cb6a031f29808c9eb399886b2
+Author: Rick Meels <rick.meels@gmail.com>
+Date:   Wed Sep 4 16:18:03 2019 +0200
+
+    Update 1
+    - Added Wagon class
+    - Changed layout of Form1
+    - Added functionality to calculate how many wagons you need (NOT COMPLETED)
+
+commit 3e3743ebc3e71ce2ba34d0cdde15ae7cd4d55350
+Author: Rick Meels <rick.meels@gmail.com>
+Date:   Wed Sep 4 09:38:26 2019 +0200
+
+    First push
+    - New layout
+    - Class Animal
+    - Created logic for adding animals
+    - Added animals are visible for review
+
+commit f14fea0249a475c07e3507dcc9215c712a53ff09
+Author: Rick Meels <rick.meels@gmail.com>
+Date:   Tue Sep 3 10:18:39 2019 +0200
+
+    Initial commit

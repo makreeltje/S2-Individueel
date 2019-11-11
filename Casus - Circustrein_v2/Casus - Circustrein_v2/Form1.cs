@@ -12,7 +12,7 @@ namespace Casus___Circustrein_v2
 {
     public partial class Form1 : Form
     {
-        Train Trains = new Train();
+        readonly Train Trains = new Train();
         public List<Animal> Animals = new List<Animal>();
         
         public Form1()
