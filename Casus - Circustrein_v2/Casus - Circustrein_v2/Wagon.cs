@@ -9,8 +9,13 @@ namespace Casus___Circustrein_v2
     public class Wagon
     {
         private Train Trains = new Train();
-        public List<Animal> Animals = new List<Animal>();
+        private List<Animal> Animals = new List<Animal>();
         private int Space { get; set; } = 10;
+
+        public List<Animal> GetAnimalsList()
+        {
+            return Animals;
+        }
 
         private Animal.Sizes BiggestCarnivore()
         {

@@ -37,9 +37,10 @@ namespace Casus___Circustrein_v2.Tests
             animals.Add(animal2);
 
             trains.FillWagon(animals);
+            
 
-            Assert.AreEqual(2, trains.Wagons.Count);
-            Assert.IsFalse(trains.Wagons[0].Animals.Count == 2);
+            Assert.AreEqual(2, trains.GetWagonsList().Count);
+            Assert.IsFalse(trains.GetWagonsList()[0].GetAnimalsList().Count == 2);
         }
 
         [TestMethod()]
@@ -58,8 +59,8 @@ namespace Casus___Circustrein_v2.Tests
             trains.FillWagon(animals);
 
             // Assert
-            Assert.AreEqual(1, trains.Wagons.Count);
-            Assert.IsTrue(trains.Wagons[0].Animals.Count == 2);
+            Assert.AreEqual(1, trains.GetWagonsList().Count);
+            Assert.IsTrue(trains.GetWagonsList()[0].GetAnimalsList().Count == 2);
         }
 
         [TestMethod()]
@@ -84,10 +85,11 @@ namespace Casus___Circustrein_v2.Tests
             trains.FillWagon(animals);
 
             // Assert
-            Assert.AreEqual(3, trains.Wagons.Count);
-            Assert.IsTrue(trains.Wagons[0].Animals.Count == 2);
-            Assert.IsTrue(trains.Wagons[1].Animals.Count == 2);
-            Assert.IsTrue(trains.Wagons[2].Animals.Count == 1);
+            Assert.AreEqual(3, trains.GetWagonsList().Count);
+            Assert.IsTrue(trains.GetWagonsList()[0].GetAnimalsList().Count == 2);
+            Assert.IsTrue(trains.GetWagonsList()[1].GetAnimalsList().Count == 2);
+            Assert.IsTrue(trains.GetWagonsList()[2].GetAnimalsList().Count == 1);
+            Assert.IsTrue(trains.GetWagonsList()[0].GetAnimalsList()[0].Type == Animal.Types.Herbivore);
         }
     }
 }

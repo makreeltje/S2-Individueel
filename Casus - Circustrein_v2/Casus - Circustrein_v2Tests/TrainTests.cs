@@ -142,7 +142,7 @@ namespace Casus___Circustrein_v2.Tests
             trains.FillWagon(animals);
 
             //assert
-            Assert.AreEqual(20, trains.Wagons.Count());
+            Assert.AreEqual(20, trains.GetWagonsList().Count());
         }
     }
 }

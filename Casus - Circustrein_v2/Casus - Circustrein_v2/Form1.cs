@@ -50,7 +50,7 @@ namespace Casus___Circustrein_v2
 
         private void ButtonCalculate_Click(object sender, EventArgs e)
         {
-            Trains.Wagons.Clear();
+            Trains.ClearList();
             Trains.FillWagon(Animals);
 
             ListAnimals.Items.Clear();
@@ -59,7 +59,7 @@ namespace Casus___Circustrein_v2
                 ListAnimals.Items.Add(item);
             }
             ListAnimals.Items.Clear();
-            foreach (Wagon currentWagon in Trains.Wagons)
+            foreach (Wagon currentWagon in Trains.GetWagonsList())
             {
                 ListTrains.Items.Add(currentWagon);
             }
@@ -68,11 +68,11 @@ namespace Casus___Circustrein_v2
         private void ListTrains_SelectedIndexChanged(object sender, EventArgs e)
         {
             int selectedIndex = ListTrains.SelectedIndex;
-            Wagon selectedWagon = Trains.Wagons[selectedIndex];
+            Wagon selectedWagon = Trains.GetWagonsList()[selectedIndex];
 
             ListWagons.Items.Clear();
 
-            foreach (Animal wagonAnimal in selectedWagon.Animals)
+            foreach (Animal wagonAnimal in selectedWagon.GetAnimalsList())
             {
                 ListWagons.Items.Add($"{wagonAnimal.Name} ({wagonAnimal.Size}, {wagonAnimal.Type})");
             }
