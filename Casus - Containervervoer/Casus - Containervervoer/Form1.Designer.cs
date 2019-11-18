@@ -49,23 +49,24 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.lblContainerWeight = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.lblShipBalance = new System.Windows.Forms.Label();
             this.lblShipWeight = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lblFront = new System.Windows.Forms.Label();
             this.listPlace6 = new System.Windows.Forms.ListBox();
             this.listPlace5 = new System.Windows.Forms.ListBox();
             this.listPlace4 = new System.Windows.Forms.ListBox();
             this.listPlace3 = new System.Windows.Forms.ListBox();
             this.listPlace2 = new System.Windows.Forms.ListBox();
             this.listPlace1 = new System.Windows.Forms.ListBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.lblContainerWeight = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.lblFront = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.btnCalculation = new System.Windows.Forms.Button();
             this.gbSetUp.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numShipWeight)).BeginInit();
             this.gbContainerSetUp.SuspendLayout();
@@ -317,6 +318,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.btnCalculation);
             this.groupBox3.Controls.Add(this.label11);
             this.groupBox3.Controls.Add(this.label10);
             this.groupBox3.Controls.Add(this.lblContainerWeight);
@@ -333,6 +335,55 @@
             this.groupBox3.TabIndex = 7;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Statistics";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(107, 91);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(53, 13);
+            this.label11.TabIndex = 13;
+            this.label11.Text = "Balance";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(107, 78);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(47, 13);
+            this.label10.TabIndex = 12;
+            this.label10.Text = "Weight";
+            // 
+            // lblContainerWeight
+            // 
+            this.lblContainerWeight.AutoSize = true;
+            this.lblContainerWeight.Location = new System.Drawing.Point(168, 60);
+            this.lblContainerWeight.Name = "lblContainerWeight";
+            this.lblContainerWeight.Size = new System.Drawing.Size(106, 13);
+            this.lblContainerWeight.TabIndex = 11;
+            this.lblContainerWeight.Text = "No containers added";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(107, 60);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(47, 13);
+            this.label8.TabIndex = 10;
+            this.label8.Text = "Weight";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(107, 47);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(40, 13);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Count";
             // 
             // lblShipBalance
             // 
@@ -378,6 +429,26 @@
             this.groupBox4.TabIndex = 8;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Ship";
+            // 
+            // label6
+            // 
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(749, 16);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(21, 143);
+            this.label6.TabIndex = 7;
+            this.label6.Text = "B\r\nA\r\nC\r\nK";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblFront
+            // 
+            this.lblFront.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFront.Location = new System.Drawing.Point(6, 16);
+            this.lblFront.Name = "lblFront";
+            this.lblFront.Size = new System.Drawing.Size(22, 143);
+            this.lblFront.TabIndex = 6;
+            this.lblFront.Text = "F\r\nR\r\nO\r\nN\r\nT";
+            this.lblFront.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // listPlace6
             // 
@@ -427,74 +498,15 @@
             this.listPlace1.Size = new System.Drawing.Size(230, 69);
             this.listPlace1.TabIndex = 0;
             // 
-            // label5
+            // btnCalculation
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(107, 47);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(40, 13);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "Count";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(107, 60);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(47, 13);
-            this.label8.TabIndex = 10;
-            this.label8.Text = "Weight";
-            // 
-            // lblContainerWeight
-            // 
-            this.lblContainerWeight.AutoSize = true;
-            this.lblContainerWeight.Location = new System.Drawing.Point(168, 60);
-            this.lblContainerWeight.Name = "lblContainerWeight";
-            this.lblContainerWeight.Size = new System.Drawing.Size(106, 13);
-            this.lblContainerWeight.TabIndex = 11;
-            this.lblContainerWeight.Text = "No containers added";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(107, 78);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(47, 13);
-            this.label10.TabIndex = 12;
-            this.label10.Text = "Weight";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(107, 91);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(53, 13);
-            this.label11.TabIndex = 13;
-            this.label11.Text = "Balance";
-            // 
-            // lblFront
-            // 
-            this.lblFront.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFront.Location = new System.Drawing.Point(6, 16);
-            this.lblFront.Name = "lblFront";
-            this.lblFront.Size = new System.Drawing.Size(22, 143);
-            this.lblFront.TabIndex = 6;
-            this.lblFront.Text = "F\r\nR\r\nO\r\nN\r\nT";
-            this.lblFront.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label6
-            // 
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(749, 16);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(21, 143);
-            this.label6.TabIndex = 7;
-            this.label6.Text = "B\r\nA\r\nC\r\nK";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnCalculation.Location = new System.Drawing.Point(118, 119);
+            this.btnCalculation.Name = "btnCalculation";
+            this.btnCalculation.Size = new System.Drawing.Size(94, 23);
+            this.btnCalculation.TabIndex = 14;
+            this.btnCalculation.Text = "Start Calculation";
+            this.btnCalculation.UseVisualStyleBackColor = true;
+            this.btnCalculation.Click += new System.EventHandler(this.btnCalculation_Click);
             // 
             // Form1
             // 
@@ -564,6 +576,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lblFront;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btnCalculation;
     }
 }
 

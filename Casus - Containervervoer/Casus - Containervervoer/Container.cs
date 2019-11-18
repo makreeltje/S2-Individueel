@@ -50,10 +50,7 @@ namespace Casus___Containervervoer
             {
                 return false;
             }
-            else
-            {
-                return true;
-            }
+            return true;
 
         }
 

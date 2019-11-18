@@ -105,5 +105,10 @@ namespace Casus___Containervervoer
             lblContainerTotal.Text = "No containers added";
 
         }
+
+        private void btnCalculation_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

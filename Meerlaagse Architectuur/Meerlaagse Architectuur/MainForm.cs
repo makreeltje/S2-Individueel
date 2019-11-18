@@ -42,37 +42,13 @@ namespace Meerlaagse_Architectuur
             dobTextBox.Text = empToShow.DateOfBirth.ToString();
             startDateTextBox.Text = empToShow.StartDate.ToString();
 
-            photoPictureBox.Image = Image.FromFile(empToShow.ImageName);
+           // photoPictureBox.Image = Image.FromFile(empToShow.ImageName);
         }
 
         private void LoadData()
         {
             // LoadDataFromFile();
             _employees = Employee.GetAllEmployees();
-        }
-
-        private void LoadDataFromFile()
-        {
-            // Get data
-            string path = "Data\\personnel.csv";
-
-            var allData = File.ReadLines(path);
-            foreach (var line in allData)
-            {
-                string[] parts = line.Split(",".ToCharArray());
-
-                // pnumber, firstname, lastname, dob, startdate
-                int pNumber = Int32.Parse(parts[0]);
-                Employee employee = new Employee(parts[1], parts[2], pNumber);
-                DateTime dateOfBirth, startDate;
-                if (DateTime.TryParse(parts[3], out dateOfBirth) && DateTime.TryParse(parts[4], out startDate))
-                {
-                    employee.DateOfBirth = dateOfBirth;
-                    employee.StartDate = startDate;
-                }
-
-                _employees.Add(employee);
-            }
         }
 
         private void prevButton_Click(object sender, EventArgs e)
