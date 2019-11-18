@@ -63,11 +63,6 @@ namespace Casus___Circustrein_v2
             {
                 ListTrains.Items.Add(currentWagon);
             }
-
-            foreach (Animal item in Trains.SortAnimals(Animals))
-            {
-                listBox1.Items.Add($"{item.Name} ({item.Size}, {item.Type})");
-            }
         }
 
         private void ListTrains_SelectedIndexChanged(object sender, EventArgs e)
