@@ -8,9 +8,10 @@ namespace Casus___Circustrein_v2
 {
     public class Train
     {
+        // Needs to stay public to be accessible from the frontend
         public List<Wagon> Wagons = new List<Wagon>();
 
-        public Wagon AddAnimalToWagon(Animal animal)
+        private Wagon AddAnimalToWagon(Animal animal)
         {
             Wagon newWagon = new Wagon();
             newWagon.AddAnimal(animal);
@@ -18,12 +19,14 @@ namespace Casus___Circustrein_v2
             return newWagon;
         }
 
+        // Needs to stay public to be accessible from the frontend
         public List<Animal> SortAnimals(List<Animal> unorderedAnimals)
         {
             return unorderedAnimals.OrderByDescending(animal => animal.Type)
                 .ThenByDescending(animal => (int) animal.Size).ToList();
         }
 
+        // Needs to stay public to be accessible from the frontend
         public void FillWagon(List<Animal> allAnimals)
         {
             allAnimals = SortAnimals(allAnimals);

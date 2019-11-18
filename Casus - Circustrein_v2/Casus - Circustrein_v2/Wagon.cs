@@ -8,9 +8,9 @@ namespace Casus___Circustrein_v2
 {
     public class Wagon
     {
-        Train Trains = new Train();
+        private Train Trains = new Train();
         public List<Animal> Animals = new List<Animal>();
-        public int Space { get; set; } = 10;
+        private int Space { get; set; } = 10;
 
         private Animal.Sizes BiggestCarnivore()
         {

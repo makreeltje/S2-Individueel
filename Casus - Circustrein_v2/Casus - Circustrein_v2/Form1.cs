@@ -12,8 +12,8 @@ namespace Casus___Circustrein_v2
 {
     public partial class Form1 : Form
     {
-        readonly Train Trains = new Train();
-        public List<Animal> Animals = new List<Animal>();
+        private readonly Train Trains = new Train();
+        private List<Animal> Animals = new List<Animal>();
         
         public Form1()
         {
