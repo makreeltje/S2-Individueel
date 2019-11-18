@@ -38,15 +38,14 @@ namespace Casus___Circustrein_v2.Tests
 
             trains.FillWagon(animals);
 
-            int totalWagons = trains.Wagons.Count;
-
-            Assert.AreEqual(2, totalWagons);
-            Assert.IsFalse(trains.Wagons.Capacity == 2);
+            Assert.AreEqual(2, trains.Wagons.Count);
+            Assert.IsFalse(trains.Wagons[0].Animals.Count == 2);
         }
 
         [TestMethod()]
         public void AddAnimal_CreateWagonWithAnimals_SecondAnimalDoesFit()
         {
+            // Arrange
             Train trains = new Train();
             Animal animal1 = new Animal("animal1", Animal.Types.Herbivore, Animal.Sizes.Big);
             Animal animal2 = new Animal("animal2", Animal.Types.Herbivore, Animal.Sizes.Medium);
@@ -55,10 +54,10 @@ namespace Casus___Circustrein_v2.Tests
             animals.Add(animal1);
             animals.Add(animal2);
 
+            // Act
             trains.FillWagon(animals);
 
-            int totalWagons = trains.Wagons.Count;
-
+            // Assert
             Assert.AreEqual(1, trains.Wagons.Count);
             Assert.IsTrue(trains.Wagons[0].Animals.Count == 2);
         }
@@ -66,6 +65,7 @@ namespace Casus___Circustrein_v2.Tests
         [TestMethod()]
         public void AddAnimal_CreateWagonWithAnimals_OptimalSeperation()
         {
+            // Arrange
             Train trains = new Train();
             Animal animal1 = new Animal("animal1", Animal.Types.Herbivore, Animal.Sizes.Big);
             Animal animal2 = new Animal("animal2", Animal.Types.Herbivore, Animal.Sizes.Big);
@@ -80,9 +80,10 @@ namespace Casus___Circustrein_v2.Tests
             animals.Add(animal4);
             animals.Add(animal5);
 
-
+            // Act
             trains.FillWagon(animals);
 
+            // Assert
             Assert.AreEqual(3, trains.Wagons.Count);
             Assert.IsTrue(trains.Wagons[0].Animals.Count == 2);
             Assert.IsTrue(trains.Wagons[1].Animals.Count == 2);
