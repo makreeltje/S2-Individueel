@@ -45,7 +45,7 @@ namespace Casus___Circustrein_v2
 
             ListAnimals.Items.Add($"{Animals[i].Name} ({Animals[i].Size}, {Animals[i].Type})");
 
-            
+       
         }
 
         private void ButtonCalculate_Click(object sender, EventArgs e)

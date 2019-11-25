@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Casus___Containervervoer
 {
-    internal class Places
+    internal class Stack
     {
         List<Container> _containers = new List<Container>();
     }

@@ -23,7 +23,7 @@ namespace Casus___Circustrein_v2
             Herbivore = 1
         }
 
-        public string Name { get; set; }
+        public string Name { get; private set; }
         public Sizes Size;
         public Types Type;
         public Animal(string name, Types type, Sizes size)
