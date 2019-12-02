@@ -8,17 +8,35 @@ namespace Casus___Containervervoer
 {
     public class Ship
     {
-        public int Weight { get; set; }
+        public int Lenght { get; set; }
+        public int Width { get; set; }
         public int MaxWeight { get; set; }
         public int MinWeight { get; set; }
-        public int Balance { get; set; }
-        public int WeightLeft { get; set; }
-        public int WeightRight { get; set; }
 
-        public Ship(int weight)
+        public Ship(int lenght, int width)
         {
-            Weight = weight;
+            Lenght = lenght;
+            Width = width;
+            MaxWeight = CalculateMaxWeight(lenght, width);
+            MinWeight = CalculateMinWeight(lenght, width);
+
         }
+
+        private int CalculateMaxWeight(int length, int width)
+        {
+            int result = length * width;
+            result = result * 150;
+            return result;
+        }
+
+        private int CalculateMinWeight(int length, int width)
+        {
+            int result = length * width;
+            result = result * 150;
+            result = result / 2;
+            return result;
+        }
+
     }
     
     

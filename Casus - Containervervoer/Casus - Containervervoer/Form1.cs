@@ -45,7 +45,7 @@ namespace Casus___Containervervoer
 
                 lblContainerTotal.Text = listContainers.Items.Count.ToString();
 
-                if (!container.CheckTotalWeightContainer(ship.Weight, _containers))
+                if (!container.CheckTotalWeightContainer(ship.Width, _containers))
                 {
                     rtbLog.ForeColor = Color.Red;
                     rtbLog.Text = $"The total weight of the containers exceeds the weight of the ship. Please remove a container to continue";
@@ -70,12 +70,19 @@ namespace Casus___Containervervoer
 
         private void btnSetShipWeight_Click(object sender, System.EventArgs e)
         {
-            ship = new Ship((int)numShipWeight.Value);
+            ship = new Ship((int)numLength.Value, (int)numWidth.Value);
             btnSetShipWeight.Enabled = false;
             btnAddContainer.Enabled = true;
             rtbLog.ForeColor = Color.Green;
-            rtbLog.Text = $"The weight of the ship has been set to {ship.Weight / 1000} tons";
-            lblShipWeight.Text = $"{ship.Weight / 1000} tons";
+            rtbLog.Text = $"The Values of the ship has been set \n" +
+                          $"- Ship Length:\t{ship.Lenght}\n" +
+                          $"- Ship Width:\t{ship.Width}\n" +
+                          $"- Max Weight:\t{ship.MaxWeight}\n" +
+                          $"- Min Weight:\t{ship.MinWeight}";
+            lblShipLength.Text = ship.Lenght.ToString();
+            lblShipWidth.Text = ship.Width.ToString();
+            lblShipMaxWeight.Text = ship.MaxWeight.ToString();
+            lblShipMinWeight.Text = ship.MinWeight.ToString();
         }
 
         private void btnContainerDelete_Click(object sender, EventArgs e)
