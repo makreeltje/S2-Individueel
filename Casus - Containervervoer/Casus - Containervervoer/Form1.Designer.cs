@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.gbSetUp = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.numWidth = new System.Windows.Forms.NumericUpDown();
             this.numLength = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.btnSetShipWeight = new System.Windows.Forms.Button();
             this.gbContainerSetUp = new System.Windows.Forms.GroupBox();
-            this.rdContainerStandard = new System.Windows.Forms.RadioButton();
-            this.rbContainerCooled = new System.Windows.Forms.RadioButton();
-            this.rbContainerValuable = new System.Windows.Forms.RadioButton();
+            this.checkCooled = new System.Windows.Forms.CheckBox();
+            this.checkValuable = new System.Windows.Forms.CheckBox();
             this.btnAddContainer = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.numContainerWeight = new System.Windows.Forms.NumericUpDown();
@@ -76,6 +76,7 @@
             // 
             // gbSetUp
             // 
+            this.gbSetUp.Controls.Add(this.button2);
             this.gbSetUp.Controls.Add(this.label6);
             this.gbSetUp.Controls.Add(this.numWidth);
             this.gbSetUp.Controls.Add(this.numLength);
@@ -83,15 +84,24 @@
             this.gbSetUp.Controls.Add(this.btnSetShipWeight);
             this.gbSetUp.Location = new System.Drawing.Point(12, 12);
             this.gbSetUp.Name = "gbSetUp";
-            this.gbSetUp.Size = new System.Drawing.Size(135, 101);
+            this.gbSetUp.Size = new System.Drawing.Size(135, 189);
             this.gbSetUp.TabIndex = 0;
             this.gbSetUp.TabStop = false;
             this.gbSetUp.Text = "Ship set-up";
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(5, 160);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(123, 23);
+            this.button2.TabIndex = 7;
+            this.button2.Text = "Reset Ship";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(68, 16);
+            this.label6.Location = new System.Drawing.Point(6, 66);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(44, 13);
             this.label6.TabIndex = 6;
@@ -99,16 +109,16 @@
             // 
             // numWidth
             // 
-            this.numWidth.Location = new System.Drawing.Point(71, 32);
+            this.numWidth.Location = new System.Drawing.Point(6, 82);
             this.numWidth.Name = "numWidth";
-            this.numWidth.Size = new System.Drawing.Size(58, 20);
+            this.numWidth.Size = new System.Drawing.Size(122, 20);
             this.numWidth.TabIndex = 5;
             // 
             // numLength
             // 
             this.numLength.Location = new System.Drawing.Point(6, 32);
             this.numLength.Name = "numLength";
-            this.numLength.Size = new System.Drawing.Size(58, 20);
+            this.numLength.Size = new System.Drawing.Size(122, 20);
             this.numLength.TabIndex = 4;
             // 
             // label1
@@ -122,7 +132,7 @@
             // 
             // btnSetShipWeight
             // 
-            this.btnSetShipWeight.Location = new System.Drawing.Point(6, 58);
+            this.btnSetShipWeight.Location = new System.Drawing.Point(6, 131);
             this.btnSetShipWeight.Name = "btnSetShipWeight";
             this.btnSetShipWeight.Size = new System.Drawing.Size(123, 23);
             this.btnSetShipWeight.TabIndex = 2;
@@ -132,55 +142,42 @@
             // 
             // gbContainerSetUp
             // 
-            this.gbContainerSetUp.Controls.Add(this.rdContainerStandard);
-            this.gbContainerSetUp.Controls.Add(this.rbContainerCooled);
-            this.gbContainerSetUp.Controls.Add(this.rbContainerValuable);
+            this.gbContainerSetUp.Controls.Add(this.checkCooled);
+            this.gbContainerSetUp.Controls.Add(this.checkValuable);
             this.gbContainerSetUp.Controls.Add(this.btnAddContainer);
             this.gbContainerSetUp.Controls.Add(this.label2);
             this.gbContainerSetUp.Controls.Add(this.numContainerWeight);
-            this.gbContainerSetUp.Location = new System.Drawing.Point(13, 187);
+            this.gbContainerSetUp.Location = new System.Drawing.Point(12, 207);
             this.gbContainerSetUp.Name = "gbContainerSetUp";
-            this.gbContainerSetUp.Size = new System.Drawing.Size(135, 159);
+            this.gbContainerSetUp.Size = new System.Drawing.Size(135, 139);
             this.gbContainerSetUp.TabIndex = 3;
             this.gbContainerSetUp.TabStop = false;
             this.gbContainerSetUp.Text = "Container Set-Up";
             // 
-            // rdContainerStandard
+            // checkCooled
             // 
-            this.rdContainerStandard.AutoSize = true;
-            this.rdContainerStandard.Checked = true;
-            this.rdContainerStandard.Location = new System.Drawing.Point(6, 58);
-            this.rdContainerStandard.Name = "rdContainerStandard";
-            this.rdContainerStandard.Size = new System.Drawing.Size(68, 17);
-            this.rdContainerStandard.TabIndex = 5;
-            this.rdContainerStandard.TabStop = true;
-            this.rdContainerStandard.Text = "Standard";
-            this.rdContainerStandard.UseVisualStyleBackColor = true;
+            this.checkCooled.AutoSize = true;
+            this.checkCooled.Location = new System.Drawing.Point(5, 81);
+            this.checkCooled.Name = "checkCooled";
+            this.checkCooled.Size = new System.Drawing.Size(59, 17);
+            this.checkCooled.TabIndex = 4;
+            this.checkCooled.Text = "Cooled";
+            this.checkCooled.UseVisualStyleBackColor = true;
             // 
-            // rbContainerCooled
+            // checkValuable
             // 
-            this.rbContainerCooled.AutoSize = true;
-            this.rbContainerCooled.Location = new System.Drawing.Point(6, 81);
-            this.rbContainerCooled.Name = "rbContainerCooled";
-            this.rbContainerCooled.Size = new System.Drawing.Size(58, 17);
-            this.rbContainerCooled.TabIndex = 4;
-            this.rbContainerCooled.Text = "Cooled";
-            this.rbContainerCooled.UseVisualStyleBackColor = true;
-            // 
-            // rbContainerValuable
-            // 
-            this.rbContainerValuable.AutoSize = true;
-            this.rbContainerValuable.Location = new System.Drawing.Point(6, 104);
-            this.rbContainerValuable.Name = "rbContainerValuable";
-            this.rbContainerValuable.Size = new System.Drawing.Size(66, 17);
-            this.rbContainerValuable.TabIndex = 3;
-            this.rbContainerValuable.Text = "Valuable";
-            this.rbContainerValuable.UseVisualStyleBackColor = true;
+            this.checkValuable.AutoSize = true;
+            this.checkValuable.Location = new System.Drawing.Point(5, 58);
+            this.checkValuable.Name = "checkValuable";
+            this.checkValuable.Size = new System.Drawing.Size(67, 17);
+            this.checkValuable.TabIndex = 3;
+            this.checkValuable.Text = "Valuable";
+            this.checkValuable.UseVisualStyleBackColor = true;
             // 
             // btnAddContainer
             // 
             this.btnAddContainer.Enabled = false;
-            this.btnAddContainer.Location = new System.Drawing.Point(6, 127);
+            this.btnAddContainer.Location = new System.Drawing.Point(6, 104);
             this.btnAddContainer.Name = "btnAddContainer";
             this.btnAddContainer.Size = new System.Drawing.Size(123, 23);
             this.btnAddContainer.TabIndex = 2;
@@ -193,25 +190,20 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(6, 16);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(73, 13);
+            this.label2.Size = new System.Drawing.Size(78, 13);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Weight in KG:";
+            this.label2.Text = "Weight in tons:";
             // 
             // numContainerWeight
             // 
-            this.numContainerWeight.Increment = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
             this.numContainerWeight.Location = new System.Drawing.Point(6, 32);
             this.numContainerWeight.Maximum = new decimal(new int[] {
-            100000,
+            1000,
             0,
             0,
             0});
             this.numContainerWeight.Minimum = new decimal(new int[] {
-            1000,
+            1,
             0,
             0,
             0});
@@ -219,7 +211,7 @@
             this.numContainerWeight.Size = new System.Drawing.Size(123, 20);
             this.numContainerWeight.TabIndex = 0;
             this.numContainerWeight.Value = new decimal(new int[] {
-            4000,
+            4,
             0,
             0,
             0});
@@ -238,7 +230,7 @@
             // 
             // btnContainerDeleteAll
             // 
-            this.btnContainerDeleteAll.Location = new System.Drawing.Point(87, 223);
+            this.btnContainerDeleteAll.Location = new System.Drawing.Point(87, 303);
             this.btnContainerDeleteAll.Name = "btnContainerDeleteAll";
             this.btnContainerDeleteAll.Size = new System.Drawing.Size(75, 23);
             this.btnContainerDeleteAll.TabIndex = 2;
@@ -248,7 +240,7 @@
             // 
             // btnContainerDelete
             // 
-            this.btnContainerDelete.Location = new System.Drawing.Point(6, 223);
+            this.btnContainerDelete.Location = new System.Drawing.Point(6, 303);
             this.btnContainerDelete.Name = "btnContainerDelete";
             this.btnContainerDelete.Size = new System.Drawing.Size(75, 23);
             this.btnContainerDelete.TabIndex = 1;
@@ -261,7 +253,7 @@
             this.listContainers.FormattingEnabled = true;
             this.listContainers.Location = new System.Drawing.Point(6, 16);
             this.listContainers.Name = "listContainers";
-            this.listContainers.Size = new System.Drawing.Size(300, 199);
+            this.listContainers.Size = new System.Drawing.Size(300, 277);
             this.listContainers.TabIndex = 0;
             // 
             // label3
@@ -277,6 +269,7 @@
             // lblContainerTotal
             // 
             this.lblContainerTotal.AutoSize = true;
+            this.lblContainerTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblContainerTotal.Location = new System.Drawing.Point(168, 47);
             this.lblContainerTotal.Name = "lblContainerTotal";
             this.lblContainerTotal.Size = new System.Drawing.Size(106, 13);
@@ -310,6 +303,7 @@
             this.button1.TabIndex = 6;
             this.button1.Text = "Complete log";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // groupBox3
             // 
@@ -338,6 +332,7 @@
             // lblShipMinWeight
             // 
             this.lblShipMinWeight.AutoSize = true;
+            this.lblShipMinWeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblShipMinWeight.Location = new System.Drawing.Point(168, 117);
             this.lblShipMinWeight.Name = "lblShipMinWeight";
             this.lblShipMinWeight.Size = new System.Drawing.Size(110, 13);
@@ -347,6 +342,7 @@
             // lblShipMaxWeight
             // 
             this.lblShipMaxWeight.AutoSize = true;
+            this.lblShipMaxWeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblShipMaxWeight.Location = new System.Drawing.Point(168, 104);
             this.lblShipMaxWeight.Name = "lblShipMaxWeight";
             this.lblShipMaxWeight.Size = new System.Drawing.Size(110, 13);
@@ -406,6 +402,7 @@
             // lblContainerWeight
             // 
             this.lblContainerWeight.AutoSize = true;
+            this.lblContainerWeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblContainerWeight.Location = new System.Drawing.Point(168, 60);
             this.lblContainerWeight.Name = "lblContainerWeight";
             this.lblContainerWeight.Size = new System.Drawing.Size(106, 13);
@@ -415,26 +412,27 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(107, 60);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(47, 13);
+            this.label8.Size = new System.Drawing.Size(41, 13);
             this.label8.TabIndex = 10;
             this.label8.Text = "Weight";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(107, 47);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(40, 13);
+            this.label5.Size = new System.Drawing.Size(35, 13);
             this.label5.TabIndex = 9;
             this.label5.Text = "Count";
             // 
             // lblShipWidth
             // 
             this.lblShipWidth.AutoSize = true;
+            this.lblShipWidth.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblShipWidth.Location = new System.Drawing.Point(168, 91);
             this.lblShipWidth.Name = "lblShipWidth";
             this.lblShipWidth.Size = new System.Drawing.Size(110, 13);
@@ -444,6 +442,7 @@
             // lblShipLength
             // 
             this.lblShipLength.AutoSize = true;
+            this.lblShipLength.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblShipLength.Location = new System.Drawing.Point(168, 78);
             this.lblShipLength.Name = "lblShipLength";
             this.lblShipLength.Size = new System.Drawing.Size(110, 13);
@@ -464,7 +463,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 447);
+            this.ClientSize = new System.Drawing.Size(798, 354);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -492,9 +491,6 @@
         private System.Windows.Forms.GroupBox gbSetUp;
         private System.Windows.Forms.Button btnSetShipWeight;
         private System.Windows.Forms.GroupBox gbContainerSetUp;
-        private System.Windows.Forms.RadioButton rdContainerStandard;
-        private System.Windows.Forms.RadioButton rbContainerCooled;
-        private System.Windows.Forms.RadioButton rbContainerValuable;
         private System.Windows.Forms.Button btnAddContainer;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.NumericUpDown numContainerWeight;
@@ -525,6 +521,9 @@
         private System.Windows.Forms.Label lblShipMaxWeight;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.CheckBox checkCooled;
+        private System.Windows.Forms.CheckBox checkValuable;
     }
 }
 

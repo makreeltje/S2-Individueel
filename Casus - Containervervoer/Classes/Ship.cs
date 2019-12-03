@@ -25,15 +25,15 @@ namespace Casus___Containervervoer
         private int CalculateMaxWeight(int length, int width)
         {
             int result = length * width;
-            result = result * 150;
+            result *= 150;
             return result;
         }
 
         private int CalculateMinWeight(int length, int width)
         {
             int result = length * width;
-            result = result * 150;
-            result = result / 2;
+            result *= 150;
+            result /= 2;
             return result;
         }
 

@@ -11,9 +11,11 @@ namespace Casus___Containervervoer
     {
         public enum Categories
         {
+            None,
+            Normal,
             Valuable,
             Cooled,
-            Standard
+            ValuableCooled
         }
 
         public Categories Category;
@@ -25,20 +27,16 @@ namespace Casus___Containervervoer
             Weight = weight;
         }
 
-        public string CheckWeightContainer(int weight)
+        public bool CheckWeightContainer(int weight)
         {
-            if (weight < 4000)
+            if (weight < 4 || weight > 30)
             {
-
-                return $"Sorry but the weight of the container you're trying to add is too low. The weight needs to be between 4 and 30 tons. The current weight of the container is {weight / 1000} tons. ";
+                return true;
             }
-            else
-            {
-                return $"Sorry but the weight of the container you're trying to add is too high. The weight needs to be between 4 and 30 tons. The current weight of the container is {weight / 1000} tons. ";
-            }
+            return false;
         }
 
-        public bool CheckTotalWeightContainer(int shipWeight, List<Container> containers)
+        public bool CheckTotalWeightContainer(int shipMinWeight, int shipMaxWeight, List<Container> containers)
         {
             int totalWeight = 0;
             foreach (var item in containers)
@@ -46,13 +44,15 @@ namespace Casus___Containervervoer
                 totalWeight += item.Weight;
             }
 
-            if (totalWeight > shipWeight)
+            if (totalWeight > shipMaxWeight || totalWeight < shipMinWeight)
             {
                 return false;
             }
             return true;
 
         }
+
+        
 
         public override string ToString()
         {

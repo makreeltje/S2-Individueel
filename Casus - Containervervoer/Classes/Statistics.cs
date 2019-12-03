@@ -8,8 +8,8 @@ namespace Casus___Containervervoer
 {
     class Statistics
     {
-        public int shipWeight { get; set; }
-        public int containersWeight { get; set; }
+        public int ShipWeight { get; set; }
+        public int ContainersWeight { get; set; }
 
 
     }
