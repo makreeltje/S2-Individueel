@@ -3,22 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Classes;
 
 namespace Casus___Containervervoer
 {
     internal class Stack
     {
-        private int _totalCooled;
-        private int _totalNormal;
-        private int _totalValuable;
-        private int _totalValuableCooled;
+        public int Id { get; set; }
+        public int RowId { get; set; }
+        public int MaxStackWeight { get; set; }
         public int StackWeight { get; set; }
+        List<Container> containers = new List<Container>();
 
-        private void CheckStackWeight()
+        public Stack(int stackId, int rowId)
         {
-
+            Id = stackId;
+            RowId = rowId;
+            MaxStackWeight = 150;
+            StackWeight = 0;
         }
-
-        
     }
 }
