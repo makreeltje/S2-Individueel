@@ -11,7 +11,7 @@ namespace Casus___Containervervoer
     {
         public int Id { get; set; }
         public int RowId { get; set; }
-        public int MaxStackWeight { get; set; }
+        public int MaxWeightOnTopOfLowestContainer { get; set; }
         public int StackWeight { get; set; }
         List<Container> containers = new List<Container>();
 
@@ -19,8 +19,23 @@ namespace Casus___Containervervoer
         {
             Id = stackId;
             RowId = rowId;
-            MaxStackWeight = 150;
+            MaxWeightOnTopOfLowestContainer = 120;
             StackWeight = 0;
+        }
+
+        public bool AddContainer(Container container)
+        {
+            containers.Add(container);
+            StackWeight += container.Weight;
+            
+            return true;
+        }
+
+        public bool CalculateWeightOnTopOfLowestContainer(Container item)
+        {
+            if (StackWeight + item.Weight > MaxWeightOnTopOfLowestContainer)
+                return false;
+            return true;
         }
     }
 }

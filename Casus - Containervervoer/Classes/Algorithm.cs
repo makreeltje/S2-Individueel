@@ -7,16 +7,20 @@ using Casus___Containervervoer;
 
 namespace Classes
 {
-    class Algorithm
+    public class Algorithm
     {
-        private List<Container> _containerNormal = new List<Container>();
-        private List<Container> _containerCooled = new List<Container>();
-        private List<Container> _containerValuable = new List<Container>();
-        private List<Container> _containerValuableCooled = new List<Container>();
+        public List<Container> _containerNormal = new List<Container>();
+        public List<Container> _containerCooled = new List<Container>();
+        public List<Container> _containerValuable = new List<Container>();
+        public List<Container> _containerValuableCooled = new List<Container>();
         private List<Row> _rows = new List<Row>();
-        private List<Stack> _stacks = new List<Stack>();
 
-        private void SortContainerByCategory(IEnumerable<Container> containers)
+
+        public Algorithm()
+        {
+        }
+
+        public void SortContainerByCategory(IEnumerable<Container> containers)
         {
             foreach (var container in containers)
             {
@@ -38,7 +42,7 @@ namespace Classes
             }
         }
 
-        private void SortContainerLists()
+        public void SortContainerLists()
         {
             _containerCooled = _containerCooled.OrderByDescending(x => x.Weight).ToList();
             _containerValuableCooled = _containerValuableCooled.OrderByDescending(x => x.Weight).ToList();
@@ -46,9 +50,9 @@ namespace Classes
             _containerValuable = _containerValuable.OrderByDescending(x => x.Weight).ToList();
         }
 
-        private void CreateRows(int shipLength, int shipWidth)
+        public void CreateRows(int shipLength, int shipWidth)
         {
-            for (int i = 1; i < shipLength; i++)
+            for (int i = 0; i < shipLength; i++)
             {
                 Row newRow = new Row(i);
                 _rows.Add(newRow);
@@ -58,21 +62,36 @@ namespace Classes
 
         private void CreateStacks(int id, Row row, int shipWidth)
         {
-            for (int i = 1; i <= shipWidth; i++)
+            for (int i = 0; i < shipWidth; i++)
             {
                 Stack newStack = new Stack(i, id );
                 row.stacks.Add(newStack);
             }
         }
 
-        private void FindLowestStack(int rowId, Row row)
+        public int FindLowestStack(int rowId)
         {
-            foreach (var VARIABLE in COLLECTION)
-            {
-                
-            }
+            int stackLowestWeight = _rows[rowId].stacks.Min(w => w.StackWeight);
+            int stackId = _rows[rowId].stacks.Find(w => w.StackWeight == stackLowestWeight).Id;
 
-            int stackId = _rows[rowId].stacks.Min(w => w.StackWeight);
+            return stackId;
+        }
+
+        public bool AddCooledContainersToStack(int rowId, int stackId)
+        {
+            int stack = stackId;
+            foreach (var item in _containerCooled)
+            {
+                if (!_rows[rowId].stacks[stack].CalculateWeightOnTopOfLowestContainer(item))
+                    return false;
+                if(item.Added)
+                    continue;
+                
+                _rows[rowId].stacks[stack].AddContainer(item);
+                item.Added = true;
+                stack = FindLowestStack(rowId);
+            }
+            return true;
         }
     }
 }

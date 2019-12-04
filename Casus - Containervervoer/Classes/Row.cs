@@ -11,7 +11,6 @@ namespace Classes
     {
         public int Id { get; set; }
         public List<Stack> stacks = new List<Stack>();
-        public int TotalRows { get; set; }
 
         public Row(int id)
         {

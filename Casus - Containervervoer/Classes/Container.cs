@@ -20,6 +20,7 @@ namespace Casus___Containervervoer
 
         public Categories Category;
         public int Weight { get; set; }
+        public bool Added { get; set; }
 
         public Container(Categories cat, int weight)
         {

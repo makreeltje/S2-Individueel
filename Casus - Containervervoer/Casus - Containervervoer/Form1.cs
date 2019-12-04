@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlTypes;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -9,6 +10,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Reflection;
+using Classes;
 
 namespace Casus___Containervervoer
 {
@@ -16,6 +19,8 @@ namespace Casus___Containervervoer
     {
         private readonly List<Container> _containers;
         private Ship _ship;
+        private Algorithm alg;
+        
         public Form1()
         {
             _containers = new List<Container>();
@@ -142,10 +147,33 @@ namespace Casus___Containervervoer
             }
             else
             {
-                
+                alg = new Algorithm();
+                alg.SortContainerByCategory(_containers);
+                alg.SortContainerLists();
+                alg.CreateRows(_ship.Lenght, _ship.Width);
+                //for (int i = 0; i < _ship.Lenght; i++)
+                //{
+                //    if (!alg.AddCooledContainersToStack(i, alg.FindLowestStack(i)))
+                //        continue;
+                //    alg.AddCooledContainersToStack(i, alg.FindLowestStack(i));
+                //}
+                if (alg.AddCooledContainersToStack(0, alg.FindLowestStack(0)))
+                {
+                    alg.AddCooledContainersToStack(0, alg.FindLowestStack(0));
+                }
+                else
+                {
+                    rtbLog.ForeColor = Color.Red;
+                    rtbLog.Text = "Sorry but there are too many cooled containers";
+                    File.AppendAllText("log.txt", $"[{DateTime.Now.ToString()}]: {rtbLog.Text}\n");
+                }
+
+                rtbLog.Text = "Calculation has been made";
+                File.AppendAllText("log.txt", $"[{DateTime.Now.ToString()}]: {rtbLog.Text}\n");
+
+
             }
-            File.AppendAllText("log.txt", $"[{DateTime.Now.ToString()}]: {rtbLog.Text}\n");
-            System.Diagnostics.Process.Start("https://i872272core.venus.fhict.nl/ContainerVisualizer/index.html");
+            //System.Diagnostics.Process.Start("https://i872272core.venus.fhict.nl/ContainerVisualizer/index.html");
         }
 
         private int TotalWeight(List<Container> containers)
