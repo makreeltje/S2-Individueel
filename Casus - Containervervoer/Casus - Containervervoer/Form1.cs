@@ -24,7 +24,7 @@ namespace Casus___Containervervoer
         public Form1()
         {
             _containers = new List<Container>();
-            
+            alg = new Algorithm();
             InitializeComponent();
         }
 
@@ -85,6 +85,7 @@ namespace Casus___Containervervoer
                 return;
             }
             _ship = new Ship((int)numLength.Value, (int)numWidth.Value);
+            alg.CreateRows(_ship.Lenght, _ship.Width);
             btnSetShipWeight.Enabled = false;
             btnAddContainer.Enabled = true;
             rtbLog.ForeColor = Color.Green;
@@ -138,6 +139,7 @@ namespace Casus___Containervervoer
         private void btnCalculation_Click(object sender, EventArgs e)
         {
             int totalWeight = TotalWeight(_containers);
+            string shipVisualizer = "https://i872272core.venus.fhict.nl/ContainerVisualizer/index.html";
             if (totalWeight < _ship.MinWeight)
             {
                 rtbLog.ForeColor = Color.Red;
@@ -147,33 +149,33 @@ namespace Casus___Containervervoer
             }
             else
             {
-                alg = new Algorithm();
                 alg.SortContainerByCategory(_containers);
                 alg.SortContainerLists();
-                alg.CreateRows(_ship.Lenght, _ship.Width);
-                //for (int i = 0; i < _ship.Lenght; i++)
-                //{
-                //    if (!alg.AddCooledContainersToStack(i, alg.FindLowestStack(i)))
-                //        continue;
-                //    alg.AddCooledContainersToStack(i, alg.FindLowestStack(i));
-                //}
-                if (alg.AddCooledContainersToStack(0, alg.FindLowestStack(0)))
-                {
-                    alg.AddCooledContainersToStack(0, alg.FindLowestStack(0));
-                }
-                else
+                if (!alg.AddCooledContainersToStack(0, alg.FindLowestStack(0), _ship.Width))
                 {
                     rtbLog.ForeColor = Color.Red;
                     rtbLog.Text = "Sorry but there are too many cooled containers";
                     File.AppendAllText("log.txt", $"[{DateTime.Now.ToString()}]: {rtbLog.Text}\n");
+                    return;
                 }
 
+                for (int i = 1; i < _ship.Lenght; i++)
+                {
+                    if (!alg.AddNormalContainersToStack(i, alg.FindLowestStack(i), _ship.Width, _ship.Lenght))
+                        continue;
+                }
+                alg.ReverseStacks();
+                shipVisualizer += alg.BuildVisualizer(_ship.Width, _ship.Lenght);
+                //alg.ClearStacks();
                 rtbLog.Text = "Calculation has been made";
                 File.AppendAllText("log.txt", $"[{DateTime.Now.ToString()}]: {rtbLog.Text}\n");
 
-
+                foreach (var row in alg._rows)
+                {
+                    listRows.Items.Add($"Row {row.Id}");
+                }
             }
-            //System.Diagnostics.Process.Start("https://i872272core.venus.fhict.nl/ContainerVisualizer/index.html");
+            //System.Diagnostics.Process.Start(shipVisualizer);
         }
 
         private int TotalWeight(List<Container> containers)
@@ -190,6 +192,40 @@ namespace Casus___Containervervoer
         private void button1_Click(object sender, EventArgs e)
         {
             File.Open("log.txt", FileMode.Open);
+        }
+
+        private void label13_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listRows_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            listStacks.Items.Clear();
+            foreach (var stack in alg._rows[listRows.SelectedIndex].stacks)
+            {
+                listStacks.Items.Add($"Stack {stack.Id}");
+            }
+        }
+
+        private void listStacks_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            listContainer.Items.Clear();
+            foreach (var container in alg._rows[listRows.SelectedIndex].stacks[listStacks.SelectedIndex].containers)
+            {
+                listContainer.Items.Add("Container");
+            }
+
+            lblSelectedStackWeight.Text = alg._rows[listRows.SelectedIndex].stacks[listStacks.SelectedIndex].StackWeight
+                .ToString();
+        }
+
+        private void listContainer_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lblSelectedContainerCategory.Text = alg._rows[listRows.SelectedIndex].stacks[listStacks.SelectedIndex]
+                .containers[listContainer.SelectedIndex].Category.ToString();
+            lblSelectedContainerWeight.Text = alg._rows[listRows.SelectedIndex].stacks[listStacks.SelectedIndex]
+                .containers[listContainer.SelectedIndex].Weight.ToString();
         }
     }
 }

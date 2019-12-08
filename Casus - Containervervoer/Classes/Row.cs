@@ -7,7 +7,7 @@ using Casus___Containervervoer;
 
 namespace Classes
 {
-    class Row
+    public class Row
     {
         public int Id { get; set; }
         public List<Stack> stacks = new List<Stack>();

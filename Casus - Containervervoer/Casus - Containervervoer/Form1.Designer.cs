@@ -64,6 +64,42 @@
             this.lblShipWidth = new System.Windows.Forms.Label();
             this.lblShipLength = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.listRows = new System.Windows.Forms.ListBox();
+            this.listStacks = new System.Windows.Forms.ListBox();
+            this.listContainer = new System.Windows.Forms.ListBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.lblSelectedContainerWeight = new System.Windows.Forms.Label();
+            this.lblSelectedContainerCategory = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.lblSelectedStackWeight = new System.Windows.Forms.Label();
             this.gbSetUp.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numWidth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numLength)).BeginInit();
@@ -72,6 +108,10 @@
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // gbSetUp
@@ -113,6 +153,11 @@
             this.numWidth.Name = "numWidth";
             this.numWidth.Size = new System.Drawing.Size(122, 20);
             this.numWidth.TabIndex = 5;
+            this.numWidth.Value = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
             // 
             // numLength
             // 
@@ -120,6 +165,11 @@
             this.numLength.Name = "numLength";
             this.numLength.Size = new System.Drawing.Size(122, 20);
             this.numLength.TabIndex = 4;
+            this.numLength.Value = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
             // 
             // label1
             // 
@@ -211,7 +261,7 @@
             this.numContainerWeight.Size = new System.Drawing.Size(123, 20);
             this.numContainerWeight.TabIndex = 0;
             this.numContainerWeight.Value = new decimal(new int[] {
-            4,
+            30,
             0,
             0,
             0});
@@ -459,11 +509,360 @@
             this.label4.TabIndex = 5;
             this.label4.Text = "Ship";
             // 
+            // listRows
+            // 
+            this.listRows.FormattingEnabled = true;
+            this.listRows.Location = new System.Drawing.Point(794, 19);
+            this.listRows.Name = "listRows";
+            this.listRows.Size = new System.Drawing.Size(237, 69);
+            this.listRows.TabIndex = 8;
+            this.listRows.SelectedIndexChanged += new System.EventHandler(this.listRows_SelectedIndexChanged);
+            // 
+            // listStacks
+            // 
+            this.listStacks.FormattingEnabled = true;
+            this.listStacks.Location = new System.Drawing.Point(794, 94);
+            this.listStacks.Name = "listStacks";
+            this.listStacks.Size = new System.Drawing.Size(237, 69);
+            this.listStacks.TabIndex = 9;
+            this.listStacks.SelectedIndexChanged += new System.EventHandler(this.listStacks_SelectedIndexChanged);
+            // 
+            // listContainer
+            // 
+            this.listContainer.FormattingEnabled = true;
+            this.listContainer.Location = new System.Drawing.Point(794, 169);
+            this.listContainer.Name = "listContainer";
+            this.listContainer.Size = new System.Drawing.Size(237, 69);
+            this.listContainer.TabIndex = 10;
+            this.listContainer.SelectedIndexChanged += new System.EventHandler(this.listContainer_SelectedIndexChanged);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.panel1.Controls.Add(this.panel4);
+            this.panel1.Controls.Add(this.panel3);
+            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Location = new System.Drawing.Point(1095, 44);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(200, 294);
+            this.panel1.TabIndex = 11;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.panel2.Controls.Add(this.label18);
+            this.panel2.Controls.Add(this.label17);
+            this.panel2.Controls.Add(this.label16);
+            this.panel2.Controls.Add(this.panel7);
+            this.panel2.Controls.Add(this.panel6);
+            this.panel2.Controls.Add(this.panel5);
+            this.panel2.Location = new System.Drawing.Point(3, 4);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(194, 91);
+            this.panel2.TabIndex = 0;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.panel3.Controls.Add(this.label19);
+            this.panel3.Controls.Add(this.panel8);
+            this.panel3.Controls.Add(this.label20);
+            this.panel3.Controls.Add(this.panel10);
+            this.panel3.Controls.Add(this.label21);
+            this.panel3.Controls.Add(this.panel9);
+            this.panel3.Location = new System.Drawing.Point(3, 101);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(194, 91);
+            this.panel3.TabIndex = 1;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.panel4.Controls.Add(this.label22);
+            this.panel4.Controls.Add(this.panel11);
+            this.panel4.Controls.Add(this.label23);
+            this.panel4.Controls.Add(this.panel13);
+            this.panel4.Controls.Add(this.label24);
+            this.panel4.Controls.Add(this.panel12);
+            this.panel4.Location = new System.Drawing.Point(3, 198);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(194, 91);
+            this.panel4.TabIndex = 1;
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.panel5.Location = new System.Drawing.Point(3, 22);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(59, 66);
+            this.panel5.TabIndex = 0;
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.panel6.Location = new System.Drawing.Point(68, 22);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(59, 66);
+            this.panel6.TabIndex = 1;
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.panel7.Location = new System.Drawing.Point(132, 22);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(59, 66);
+            this.panel7.TabIndex = 1;
+            // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.panel8.Location = new System.Drawing.Point(132, 22);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(59, 66);
+            this.panel8.TabIndex = 4;
+            // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.panel9.Location = new System.Drawing.Point(68, 22);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(59, 66);
+            this.panel9.TabIndex = 3;
+            // 
+            // panel10
+            // 
+            this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.panel10.Location = new System.Drawing.Point(3, 22);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(59, 66);
+            this.panel10.TabIndex = 2;
+            // 
+            // panel11
+            // 
+            this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.panel11.Location = new System.Drawing.Point(132, 22);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(59, 66);
+            this.panel11.TabIndex = 4;
+            // 
+            // panel12
+            // 
+            this.panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.panel12.Location = new System.Drawing.Point(68, 22);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(59, 66);
+            this.panel12.TabIndex = 3;
+            // 
+            // panel13
+            // 
+            this.panel13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.panel13.Location = new System.Drawing.Point(3, 22);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(59, 66);
+            this.panel13.TabIndex = 2;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(1181, 19);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(28, 13);
+            this.label7.TabIndex = 12;
+            this.label7.Text = "Ship";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(1045, 88);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(38, 13);
+            this.label13.TabIndex = 13;
+            this.label13.Text = "Row 1";
+            this.label13.Click += new System.EventHandler(this.label13_Click);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(1045, 188);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(38, 13);
+            this.label14.TabIndex = 14;
+            this.label14.Text = "Row 2";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(1045, 288);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(38, 13);
+            this.label15.TabIndex = 15;
+            this.label15.Text = "Row 3";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(10, 6);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(44, 13);
+            this.label16.TabIndex = 2;
+            this.label16.Text = "Stack 1";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(75, 6);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(44, 13);
+            this.label17.TabIndex = 3;
+            this.label17.Text = "Stack 2";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(139, 6);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(44, 13);
+            this.label18.TabIndex = 4;
+            this.label18.Text = "Stack 3";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(139, 6);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(44, 13);
+            this.label19.TabIndex = 7;
+            this.label19.Text = "Stack 3";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(75, 6);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(44, 13);
+            this.label20.TabIndex = 6;
+            this.label20.Text = "Stack 2";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(10, 6);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(44, 13);
+            this.label21.TabIndex = 5;
+            this.label21.Text = "Stack 1";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(139, 6);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(44, 13);
+            this.label22.TabIndex = 10;
+            this.label22.Text = "Stack 3";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(75, 6);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(44, 13);
+            this.label23.TabIndex = 9;
+            this.label23.Text = "Stack 2";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(10, 6);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(44, 13);
+            this.label24.TabIndex = 8;
+            this.label24.Text = "Stack 1";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.Location = new System.Drawing.Point(795, 246);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(61, 13);
+            this.label25.TabIndex = 16;
+            this.label25.Text = "Selected:";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(795, 262);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(44, 13);
+            this.label26.TabIndex = 17;
+            this.label26.Text = "Weight:";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(795, 279);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(52, 13);
+            this.label27.TabIndex = 18;
+            this.label27.Text = "Category:";
+            // 
+            // lblSelectedContainerWeight
+            // 
+            this.lblSelectedContainerWeight.AutoSize = true;
+            this.lblSelectedContainerWeight.Location = new System.Drawing.Point(876, 262);
+            this.lblSelectedContainerWeight.Name = "lblSelectedContainerWeight";
+            this.lblSelectedContainerWeight.Size = new System.Drawing.Size(111, 13);
+            this.lblSelectedContainerWeight.TabIndex = 19;
+            this.lblSelectedContainerWeight.Text = "No container selected";
+            // 
+            // lblSelectedContainerCategory
+            // 
+            this.lblSelectedContainerCategory.AutoSize = true;
+            this.lblSelectedContainerCategory.Location = new System.Drawing.Point(876, 279);
+            this.lblSelectedContainerCategory.Name = "lblSelectedContainerCategory";
+            this.lblSelectedContainerCategory.Size = new System.Drawing.Size(111, 13);
+            this.lblSelectedContainerCategory.TabIndex = 20;
+            this.lblSelectedContainerCategory.Text = "No container selected";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(795, 296);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(75, 13);
+            this.label28.TabIndex = 21;
+            this.label28.Text = "Stack Weight:";
+            // 
+            // lblSelectedStackWeight
+            // 
+            this.lblSelectedStackWeight.AutoSize = true;
+            this.lblSelectedStackWeight.Location = new System.Drawing.Point(876, 296);
+            this.lblSelectedStackWeight.Name = "lblSelectedStackWeight";
+            this.lblSelectedStackWeight.Size = new System.Drawing.Size(93, 13);
+            this.lblSelectedStackWeight.TabIndex = 22;
+            this.lblSelectedStackWeight.Text = "No stack selected";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(798, 354);
+            this.ClientSize = new System.Drawing.Size(1310, 354);
+            this.Controls.Add(this.lblSelectedStackWeight);
+            this.Controls.Add(this.label28);
+            this.Controls.Add(this.lblSelectedContainerCategory);
+            this.Controls.Add(this.lblSelectedContainerWeight);
+            this.Controls.Add(this.label27);
+            this.Controls.Add(this.label26);
+            this.Controls.Add(this.label25);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.listContainer);
+            this.Controls.Add(this.listStacks);
+            this.Controls.Add(this.listRows);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -482,7 +881,15 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -524,6 +931,42 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.CheckBox checkCooled;
         private System.Windows.Forms.CheckBox checkValuable;
+        private System.Windows.Forms.ListBox listRows;
+        private System.Windows.Forms.ListBox listStacks;
+        private System.Windows.Forms.ListBox listContainer;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.Panel panel13;
+        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label lblSelectedContainerWeight;
+        private System.Windows.Forms.Label lblSelectedContainerCategory;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label lblSelectedStackWeight;
     }
 }
 

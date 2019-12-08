@@ -13,7 +13,7 @@ namespace Classes
         public List<Container> _containerCooled = new List<Container>();
         public List<Container> _containerValuable = new List<Container>();
         public List<Container> _containerValuableCooled = new List<Container>();
-        private List<Row> _rows = new List<Row>();
+        public List<Row> _rows = new List<Row>();
 
 
         public Algorithm()
@@ -64,7 +64,7 @@ namespace Classes
         {
             for (int i = 0; i < shipWidth; i++)
             {
-                Stack newStack = new Stack(i, id );
+                Stack newStack = new Stack(i, id);
                 row.stacks.Add(newStack);
             }
         }
@@ -77,21 +77,141 @@ namespace Classes
             return stackId;
         }
 
-        public bool AddCooledContainersToStack(int rowId, int stackId)
+        public bool AddCooledContainersToStack(int rowId, int stackId, int shipWidth)
         {
             int stack = stackId;
+            if (!AddValuableCooledContainersToStack(rowId, stack, shipWidth))
+                return false;
+
             foreach (var item in _containerCooled)
             {
                 if (!_rows[rowId].stacks[stack].CalculateWeightOnTopOfLowestContainer(item))
                     return false;
-                if(item.Added)
+                if (item.Added)
                     continue;
-                
+
                 _rows[rowId].stacks[stack].AddContainer(item);
                 item.Added = true;
                 stack = FindLowestStack(rowId);
             }
             return true;
+        }
+
+        private bool AddValuableCooledContainersToStack(int rowId, int stackId, int shipWidth)
+        {
+            int stack = stackId;
+            if (_containerValuableCooled.Count <= 0)
+                return true;
+            if (_containerValuableCooled.Count > shipWidth)
+                return false;
+            foreach (var item in _containerValuableCooled)
+            {
+                if (item.Added)
+                    continue;
+                _rows[rowId].stacks[stack].AddContainer(item);
+                item.Added = true;
+                stack = FindLowestStack(rowId);
+            }
+            return true;
+        }
+
+        public bool AddNormalContainersToStack(int rowId, int stackId, int shipWidth, int shipLength)
+        {
+            int stack = stackId;
+            if (!AddValuableContainersToStack(rowId, stack, shipWidth, shipLength))
+                return false;
+
+            foreach (var item in _containerNormal)
+            {
+                if (!_rows[rowId].stacks[stack].CalculateWeightOnTopOfLowestContainer(item))
+                    return false;
+                if (item.Added)
+                    continue;
+
+                _rows[rowId].stacks[stack].AddContainer(item);
+                item.Added = true;
+                stack = FindLowestStack(rowId);
+            }
+            return true;
+        }
+
+        private bool AddValuableContainersToStack(int rowId, int stackId, int shipWidth, int shipLength)
+        {
+            int stack = stackId;
+            if (_containerValuableCooled.Count <= 0)
+                return true;
+            if (_containerValuableCooled.Count > (shipWidth * shipLength) - shipWidth)
+                return false;
+            foreach (var item in _containerValuable)
+            {
+                if (!_rows[rowId].stacks[stack].CalculateIfContainerHasBeenAdded())
+                    return false;
+                if (item.Added)
+                    continue;
+                _rows[rowId].stacks[stack].AddContainer(item);
+                item.Added = true;
+                stack = FindLowestStack(rowId);
+            }
+            return true;
+        }
+
+        public void ReverseStacks()
+        {
+            foreach (var row in _rows)
+            {
+                foreach (var stack in row.stacks)
+                {
+                    stack.containers.Reverse();
+                }
+            }
+        }
+
+        public void ClearStacks()
+        {
+            foreach (var row in _rows)
+            {
+                foreach (var stack in row.stacks)
+                {
+                    stack.containers.Clear();
+                }
+            }
+        }
+
+        public string BuildVisualizer(int shipWidth, int shipLength)
+        {
+            string shipDimensions = $"?length={shipLength}&width={shipWidth}";
+            string shipContainerTypes = "&stacks=";
+            string shipContainerWeights = "&weights=";
+            StringBuilder sb;
+
+            foreach (var row in _rows)
+            {
+                foreach (var stack in row.stacks)
+                {
+                    foreach (var container in stack.containers)
+                    {
+                        shipContainerTypes += (int)container.Category + "-";
+                    }
+
+                    shipContainerTypes += "/";
+                }
+            }
+            foreach (var row in _rows)
+            {
+                foreach (var stack in row.stacks)
+                {
+                    foreach (var container in stack.containers)
+                    {
+                        shipContainerWeights += container.Weight + "-";
+                    }
+
+                    shipContainerWeights += ",";
+                }
+
+                shipContainerWeights += "/";
+            }
+
+            return $"{shipDimensions}{shipContainerTypes}{shipContainerWeights}";
         }
     }
 }

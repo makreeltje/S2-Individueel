@@ -7,13 +7,13 @@ using Classes;
 
 namespace Casus___Containervervoer
 {
-    internal class Stack
+    public class Stack
     {
         public int Id { get; set; }
         public int RowId { get; set; }
         public int MaxWeightOnTopOfLowestContainer { get; set; }
         public int StackWeight { get; set; }
-        List<Container> containers = new List<Container>();
+        public List<Container> containers = new List<Container>();
 
         public Stack(int stackId, int rowId)
         {
@@ -33,7 +33,15 @@ namespace Casus___Containervervoer
 
         public bool CalculateWeightOnTopOfLowestContainer(Container item)
         {
-            if (StackWeight + item.Weight > MaxWeightOnTopOfLowestContainer)
+            var lastItem = containers.Last();
+            if (StackWeight + item.Weight - lastItem.Weight > MaxWeightOnTopOfLowestContainer)
+                return false;
+            return true;
+        }
+
+        public bool CalculateIfContainerHasBeenAdded()
+        {
+            if (StackWeight > 0)
                 return false;
             return true;
         }
