@@ -11,11 +11,10 @@ namespace Casus___Containervervoer
     {
         public enum Categories
         {
-            None,
-            Normal,
-            Valuable,
-            Cooled,
-            ValuableCooled
+            Normal = 1,
+            Valuable = 2,
+            Cooled = 3,
+            ValuableCooled = 4
         }
 
         public Categories Category;

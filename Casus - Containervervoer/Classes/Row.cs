@@ -17,15 +17,5 @@ namespace Classes
             Id = id;
         }
 
-        private void AddToStack(IEnumerable<Container> containers, int shipWidth)
-        {
-            //int totalContainers = containers.Count();
-
-            //foreach (var container in containers)
-            //{
-            //    stack = new Stack();
-            //}
-        }
-
     }
 }

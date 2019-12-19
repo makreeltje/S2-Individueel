@@ -48,6 +48,11 @@ namespace Casus___Containervervoer.Tests
             Assert.AreEqual(Container.Categories.Normal, _containerNormal.Category);
         }
 
+        //public void CreateNormalContainer_CategoryNormal_IsCreated()
+        //{
+
+        //}
+
         [TestMethod()]
         public void Create_CreateCooledContainer_SeeIfCreated()
         {

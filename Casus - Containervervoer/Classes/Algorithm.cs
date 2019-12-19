@@ -1,9 +1,7 @@
-﻿using System;
+﻿using Casus___Containervervoer;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using Casus___Containervervoer;
 
 namespace Classes
 {
@@ -75,6 +73,44 @@ namespace Classes
             int stackId = _rows[rowId].stacks.Find(w => w.StackWeight == stackLowestWeight).Id;
 
             return stackId;
+        }
+
+        // RETURN VALUES:
+        // 0 = Too many valuable or valuable cooled containers
+        // 1 = Too many cooled containers
+        public int AddContainerToStack(int shipWidth)
+        {
+            int stackId;
+            if (_containerValuableCooled.Count <= shipWidth && _containerValuable.Count <= shipWidth)
+            {
+                foreach (var row in _rows)
+                {
+                    if (row.Id > 0)
+                        if (!_containerCooled.Any(c => c.Added == false))
+                            return 1;
+                    foreach (var containerValCooled in _containerValuableCooled)
+                    {
+                        if (!containerValCooled.Added)
+                        {
+                            stackId = FindLowestStack(row.Id);
+                            row.stacks[stackId].AddContainer(containerValCooled);
+                            containerValCooled.Added = true;
+                        }
+                    }
+
+                    foreach (var containerCooled in _containerCooled)
+                    {
+                        if (!containerCooled.Added)
+                        {
+                            stackId = FindLowestStack(row.Id);
+                            row.stacks[stackId].AddContainer(containerCooled);
+                            containerCooled.Added = true;
+                        }
+                    }
+                }
+            }
+            else
+                return 0;
         }
 
         public bool AddCooledContainersToStack(int rowId, int stackId, int shipWidth)
