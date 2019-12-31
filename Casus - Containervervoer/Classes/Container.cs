@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Remoting.Proxies;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Casus___Containervervoer
 {
@@ -51,8 +46,6 @@ namespace Casus___Containervervoer
             return true;
 
         }
-
-        
 
         public override string ToString()
         {

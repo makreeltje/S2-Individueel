@@ -19,12 +19,10 @@ namespace Casus___Containervervoer
     {
         private readonly List<Container> _containers;
         private Ship _ship;
-        private Algorithm alg;
         
         public Form1()
         {
             _containers = new List<Container>();
-            alg = new Algorithm();
             InitializeComponent();
         }
 
@@ -85,7 +83,7 @@ namespace Casus___Containervervoer
                 return;
             }
             _ship = new Ship((int)numLength.Value, (int)numWidth.Value);
-            alg.CreateRows(_ship.Lenght, _ship.Width);
+            _ship.CreateRows(_ship.Lenght, _ship.Width);
             btnSetShipWeight.Enabled = false;
             btnAddContainer.Enabled = true;
             rtbLog.ForeColor = Color.Green;
@@ -149,12 +147,11 @@ namespace Casus___Containervervoer
             }
             else
             {
-                alg.ClearStacks();
-                alg.SortContainerByCategory(_containers);
-                alg.SortContainerLists();
-                alg.AddContainerToStack(_ship.Width, _ship.Lenght);
+                _ship.ClearStacks();
+                _ship.SortContainerByCategory(_containers);
+                _ship.SortContainerLists();
 
-                switch (alg.AddContainerToStack(_ship.Width, _ship.Lenght))
+                switch (_ship.AddContainerToStack(_ship.Width, _ship.Lenght))
                 {
                     case 0:
                         rtbLog.ForeColor = Color.Red;
@@ -174,10 +171,10 @@ namespace Casus___Containervervoer
                         break;
                 }
                 File.AppendAllText("log.txt", $"[{DateTime.Now.ToString()}]: {rtbLog.Text}\n");
-                alg.ReverseStacks();
+                _ship.ReverseStacks();
                 //shipVisualizer += alg.BuildVisualizer(_ship.Width, _ship.Lenght);
 
-                foreach (var row in alg._rows)
+                foreach (var row in _ship.GetRows())
                 {
                     listRows.Items.Add($"Row {row.Id}");
                 }
@@ -209,7 +206,7 @@ namespace Casus___Containervervoer
         private void listRows_SelectedIndexChanged(object sender, EventArgs e)
         {
             listStacks.Items.Clear();
-            foreach (var stack in alg._rows[listRows.SelectedIndex].stacks)
+            foreach (var stack in _ship.GetRows()[listRows.SelectedIndex].stacks)
             {
                 listStacks.Items.Add($"Stack {stack.Id}");
             }
@@ -218,20 +215,20 @@ namespace Casus___Containervervoer
         private void listStacks_SelectedIndexChanged(object sender, EventArgs e)
         {
             listContainer.Items.Clear();
-            foreach (var container in alg._rows[listRows.SelectedIndex].stacks[listStacks.SelectedIndex].containers)
+            foreach (var container in _ship.GetRows()[listRows.SelectedIndex].stacks[listStacks.SelectedIndex].containers)
             {
                 listContainer.Items.Add("Container");
             }
 
-            lblSelectedStackWeight.Text = alg._rows[listRows.SelectedIndex].stacks[listStacks.SelectedIndex].StackWeight
+            lblSelectedStackWeight.Text = _ship.GetRows()[listRows.SelectedIndex].stacks[listStacks.SelectedIndex].StackWeight
                 .ToString();
         }
 
         private void listContainer_SelectedIndexChanged(object sender, EventArgs e)
         {
-            lblSelectedContainerCategory.Text = alg._rows[listRows.SelectedIndex].stacks[listStacks.SelectedIndex]
+            lblSelectedContainerCategory.Text = _ship.GetRows()[listRows.SelectedIndex].stacks[listStacks.SelectedIndex]
                 .containers[listContainer.SelectedIndex].Category.ToString();
-            lblSelectedContainerWeight.Text = alg._rows[listRows.SelectedIndex].stacks[listStacks.SelectedIndex]
+            lblSelectedContainerWeight.Text = _ship.GetRows()[listRows.SelectedIndex].stacks[listStacks.SelectedIndex]
                 .containers[listContainer.SelectedIndex].Weight.ToString();
         }
     }
