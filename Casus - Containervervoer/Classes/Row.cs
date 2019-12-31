@@ -41,5 +41,13 @@ namespace Classes
                 stack.containers.Clear();
             }
         }
+
+        public void ReverseStacks()
+        {
+            foreach (var stack in stacks)
+            {
+                stack.containers.Reverse();
+            }
+        }
     }
 }

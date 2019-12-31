@@ -162,10 +162,7 @@ namespace Casus___Containervervoer
         {
             foreach (var row in _rows)
             {
-                foreach (var stack in row.stacks)
-                {
-                    stack.containers.Reverse();
-                }
+                row.ReverseStacks();
             }
         }
         public void ClearStacks()
@@ -180,7 +177,6 @@ namespace Casus___Containervervoer
             string shipDimensions = $"?length={shipLength}&width={shipWidth}";
             string shipContainerTypes = "&stacks=";
             string shipContainerWeights = "&weights=";
-            StringBuilder sb;
 
             foreach (var row in _rows)
             {
