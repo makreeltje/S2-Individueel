@@ -76,41 +76,76 @@ namespace Classes
         }
 
         // RETURN VALUES:
-        // 0 = Too many valuable or valuable cooled containers
+        // 0 = Too many valuable cooled containers
         // 1 = Too many cooled containers
-        public int AddContainerToStack(int shipWidth)
+        // 3 = Calculation is done
+        // 4 = Too many valuable containers
+        public int AddContainerToStack(int shipWidth, int shipLength)
         {
             int stackId;
-            if (_containerValuableCooled.Count <= shipWidth && _containerValuable.Count <= shipWidth)
+            if (_containerValuableCooled.Count <= shipWidth)
             {
-                foreach (var row in _rows)
+                if (_containerValuable.Count <= shipWidth)
                 {
-                    if (row.Id > 0)
-                        if (!_containerCooled.Any(c => c.Added == false))
-                            return 1;
-                    foreach (var containerValCooled in _containerValuableCooled)
+                    foreach (var row in _rows)
                     {
-                        if (!containerValCooled.Added)
+                        if (row.Id > 0)
+                            if (_containerCooled.Any(c => c.Added == false))
+                                return 1;
+                        foreach (var containerValCooled in _containerValuableCooled)
                         {
-                            stackId = FindLowestStack(row.Id);
-                            row.stacks[stackId].AddContainer(containerValCooled);
-                            containerValCooled.Added = true;
+                            if (!containerValCooled.Added)
+                            {
+                                stackId = FindLowestStack(row.Id);
+                                row.stacks[stackId].AddContainer(containerValCooled);
+                                containerValCooled.Added = true;
+                            }
                         }
-                    }
 
-                    foreach (var containerCooled in _containerCooled)
-                    {
-                        if (!containerCooled.Added)
+                        foreach (var containerCooled in _containerCooled)
                         {
-                            stackId = FindLowestStack(row.Id);
-                            row.stacks[stackId].AddContainer(containerCooled);
-                            containerCooled.Added = true;
+                            if (!containerCooled.Added)
+                            {
+                                stackId = FindLowestStack(row.Id);
+                                row.stacks[stackId].AddContainer(containerCooled);
+                                containerCooled.Added = true;
+                            }
+                        }
+
+                        foreach (var containerValuable in _containerValuable)
+                        {
+                            if (!containerValuable.Added)
+                            {
+                                if (row.Id == shipLength - 1)
+                                {
+                                    stackId = FindLowestStack(row.Id);
+                                    row.stacks[stackId].AddContainer(containerValuable);
+                                    containerValuable.Added = true;
+                                }
+                            }
+                        }
+
+                        foreach (var containerNormal in _containerNormal)
+                        {
+                            if (!containerNormal.Added)
+                            {
+                                stackId = FindLowestStack(row.Id);
+                                if (row.stacks[stackId].CalculateWeightOnTopOfLowestContainer(containerNormal))
+                                {
+                                    row.stacks[stackId].AddContainer(containerNormal);
+                                    containerNormal.Added = true;
+                                }
+                            }
                         }
                     }
                 }
+                else
+                    return 4;
             }
             else
                 return 0;
+
+            return 3;
         }
 
         public bool AddCooledContainersToStack(int rowId, int stackId, int shipWidth)

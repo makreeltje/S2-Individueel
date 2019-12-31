@@ -149,26 +149,33 @@ namespace Casus___Containervervoer
             }
             else
             {
+                alg.ClearStacks();
                 alg.SortContainerByCategory(_containers);
                 alg.SortContainerLists();
-                if (!alg.AddCooledContainersToStack(0, alg.FindLowestStack(0), _ship.Width))
-                {
-                    rtbLog.ForeColor = Color.Red;
-                    rtbLog.Text = "Sorry but there are too many cooled containers";
-                    File.AppendAllText("log.txt", $"[{DateTime.Now.ToString()}]: {rtbLog.Text}\n");
-                    return;
-                }
+                alg.AddContainerToStack(_ship.Width, _ship.Lenght);
 
-                for (int i = 1; i < _ship.Lenght; i++)
+                switch (alg.AddContainerToStack(_ship.Width, _ship.Lenght))
                 {
-                    if (!alg.AddNormalContainersToStack(i, alg.FindLowestStack(i), _ship.Width, _ship.Lenght))
-                        continue;
+                    case 0:
+                        rtbLog.ForeColor = Color.Red;
+                        rtbLog.Text = "Too many valuable cooled containers";
+                        break;
+                    case 1:
+                        rtbLog.ForeColor = Color.Red;
+                        rtbLog.Text = "Too many cooled containers";
+                        break;
+                    case 3:
+                        rtbLog.ForeColor = Color.Green;
+                        rtbLog.Text = "Calculation has been made";
+                        break;
+                    case 4:
+                        rtbLog.ForeColor = Color.Red;
+                        rtbLog.Text = "Too many valuable containers";
+                        break;
                 }
-                alg.ReverseStacks();
-                shipVisualizer += alg.BuildVisualizer(_ship.Width, _ship.Lenght);
-                //alg.ClearStacks();
-                rtbLog.Text = "Calculation has been made";
                 File.AppendAllText("log.txt", $"[{DateTime.Now.ToString()}]: {rtbLog.Text}\n");
+                alg.ReverseStacks();
+                //shipVisualizer += alg.BuildVisualizer(_ship.Width, _ship.Lenght);
 
                 foreach (var row in alg._rows)
                 {
