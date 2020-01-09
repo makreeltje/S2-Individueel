@@ -46,7 +46,6 @@
     <Compile Include="Row.cs" />
     <Compile Include="Ship.cs" />
     <Compile Include="Stack.cs" />
-    <Compile Include="Statistics.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
