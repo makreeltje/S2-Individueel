@@ -108,9 +108,12 @@ namespace ClassesTests
 
             // Act
             i = _ship.AddContainerToStack(_ship.Width, _ship.Lenght);
+            _ship.ReverseStacks();
 
             // Assert
             Assert.AreEqual(3, i);
+
+            _ship.ClearStacks();
         }
 
         [TestMethod()]
@@ -129,9 +132,12 @@ namespace ClassesTests
 
             // Act
             i = _ship.AddContainerToStack(_ship.Width, _ship.Lenght);
+            _ship.ReverseStacks();
 
             // Assert
             Assert.AreEqual(1, i);
+
+            _ship.ClearStacks();
         }
 
         [TestMethod()]
@@ -147,9 +153,12 @@ namespace ClassesTests
 
             // Act
             i = _ship.AddContainerToStack(_ship.Width, _ship.Lenght);
+            _ship.ReverseStacks();
 
             // Assert
             Assert.AreEqual(0, i);
+
+            _ship.ClearStacks();
         }
 
         [TestMethod()]
@@ -165,9 +174,12 @@ namespace ClassesTests
 
             // Act
             i = _ship.AddContainerToStack(_ship.Width, _ship.Lenght);
+            _ship.ReverseStacks();
 
             // Assert
             Assert.AreEqual(4, i);
+
+            _ship.ClearStacks();
         }
     }
 }
