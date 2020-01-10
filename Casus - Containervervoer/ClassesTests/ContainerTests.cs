@@ -1,12 +1,8 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Casus___Containervervoer;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using Classes;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Casus___Containervervoer.Tests
+namespace ClassesTests
 {
     [TestClass()]
     public class ContainerTests

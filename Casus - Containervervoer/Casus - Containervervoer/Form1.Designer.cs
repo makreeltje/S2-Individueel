@@ -188,7 +188,7 @@
             this.btnSetShipWeight.TabIndex = 2;
             this.btnSetShipWeight.Text = "Set Size";
             this.btnSetShipWeight.UseVisualStyleBackColor = true;
-            this.btnSetShipWeight.Click += new System.EventHandler(this.btnSetShipWeight_Click);
+            this.btnSetShipWeight.Click += new System.EventHandler(this.BtnSetShipWeight_Click);
             // 
             // gbContainerSetUp
             // 
@@ -233,7 +233,7 @@
             this.btnAddContainer.TabIndex = 2;
             this.btnAddContainer.Text = "Add";
             this.btnAddContainer.UseVisualStyleBackColor = true;
-            this.btnAddContainer.Click += new System.EventHandler(this.btnAddContainer_Click);
+            this.btnAddContainer.Click += new System.EventHandler(this.BtnAddContainer_Click);
             // 
             // label2
             // 
@@ -286,7 +286,7 @@
             this.btnContainerDeleteAll.TabIndex = 2;
             this.btnContainerDeleteAll.Text = "Delete All";
             this.btnContainerDeleteAll.UseVisualStyleBackColor = true;
-            this.btnContainerDeleteAll.Click += new System.EventHandler(this.btnContainerDeleteAll_Click);
+            this.btnContainerDeleteAll.Click += new System.EventHandler(this.BtnContainerDeleteAll_Click);
             // 
             // btnContainerDelete
             // 
@@ -296,7 +296,7 @@
             this.btnContainerDelete.TabIndex = 1;
             this.btnContainerDelete.Text = "Delete";
             this.btnContainerDelete.UseVisualStyleBackColor = true;
-            this.btnContainerDelete.Click += new System.EventHandler(this.btnContainerDelete_Click);
+            this.btnContainerDelete.Click += new System.EventHandler(this.BtnContainerDelete_Click);
             // 
             // listContainers
             // 
@@ -353,7 +353,7 @@
             this.button1.TabIndex = 6;
             this.button1.Text = "Complete log";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // groupBox3
             // 
@@ -427,7 +427,7 @@
             this.btnCalculation.TabIndex = 14;
             this.btnCalculation.Text = "Start Calculation";
             this.btnCalculation.UseVisualStyleBackColor = true;
-            this.btnCalculation.Click += new System.EventHandler(this.btnCalculation_Click);
+            this.btnCalculation.Click += new System.EventHandler(this.BtnCalculation_Click);
             // 
             // label11
             // 
@@ -516,7 +516,7 @@
             this.listRows.Name = "listRows";
             this.listRows.Size = new System.Drawing.Size(237, 69);
             this.listRows.TabIndex = 8;
-            this.listRows.SelectedIndexChanged += new System.EventHandler(this.listRows_SelectedIndexChanged);
+            this.listRows.SelectedIndexChanged += new System.EventHandler(this.ListRows_SelectedIndexChanged);
             // 
             // listStacks
             // 
@@ -525,7 +525,7 @@
             this.listStacks.Name = "listStacks";
             this.listStacks.Size = new System.Drawing.Size(237, 69);
             this.listStacks.TabIndex = 9;
-            this.listStacks.SelectedIndexChanged += new System.EventHandler(this.listStacks_SelectedIndexChanged);
+            this.listStacks.SelectedIndexChanged += new System.EventHandler(this.ListStacks_SelectedIndexChanged);
             // 
             // listContainer
             // 
@@ -534,7 +534,7 @@
             this.listContainer.Name = "listContainer";
             this.listContainer.Size = new System.Drawing.Size(237, 69);
             this.listContainer.TabIndex = 10;
-            this.listContainer.SelectedIndexChanged += new System.EventHandler(this.listContainer_SelectedIndexChanged);
+            this.listContainer.SelectedIndexChanged += new System.EventHandler(this.ListContainer_SelectedIndexChanged);
             // 
             // panel1
             // 
@@ -678,7 +678,7 @@
             this.label13.Size = new System.Drawing.Size(38, 13);
             this.label13.TabIndex = 13;
             this.label13.Text = "Row 1";
-            this.label13.Click += new System.EventHandler(this.label13_Click);
+            this.label13.Click += new System.EventHandler(this.Label13_Click);
             // 
             // label14
             // 

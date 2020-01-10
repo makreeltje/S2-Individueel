@@ -1,11 +1,12 @@
 ﻿using System.Collections.Generic;
 
-namespace Casus___Containervervoer
+namespace Classes
 {
     public class Container
     {
         public enum Categories
         {
+            None = 0,
             Normal = 1,
             Valuable = 2,
             Cooled = 3,

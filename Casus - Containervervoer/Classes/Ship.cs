@@ -1,37 +1,48 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Classes;
 
-namespace Casus___Containervervoer
+namespace Classes
 {
     public class Ship
     {
-        private Stack _stack;
         private List<Container> _containerNormal = new List<Container>();
         private List<Container> _containerCooled = new List<Container>();
         private List<Container> _containerValuable = new List<Container>();
         private List<Container> _containerValuableCooled = new List<Container>();
-        private List<Row> _rows = new List<Row>();
-        public int Lenght { get; set; }
-        public int Width { get; set; }
-        public int MaxWeight { get; set; }
-        public int MinWeight { get; set; }
+        private readonly List<Row> _rows = new List<Row>();
+        public int Lenght { get; }
+        public int Width { get; }
+        public int MaxWeight { get; }
+        public int MinWeight { get; }
 
-        public Ship(int lenght, int width)
+        public Ship(int length, int width)
         {
-            Lenght = lenght;
+            Lenght = length;
             Width = width;
-            MaxWeight = CalculateMaxWeight(lenght, width);
-            MinWeight = CalculateMinWeight(lenght, width);
+            MaxWeight = CalculateMaxWeight(length, width);
+            MinWeight = CalculateMinWeight(length, width);
 
         }
 
         public List<Row> GetRows()
         {
             return _rows;
+        }
+        public List<Container> GetContainerNormalList()
+        {
+            return _containerNormal;
+        }
+        public List<Container> GetContainerCooledList()
+        {
+            return _containerCooled;
+        }
+        public List<Container> GetContainerValuableList()
+        {
+            return _containerValuable;
+        }
+        public List<Container> GetContainerValuableCooledList()
+        {
+            return _containerValuableCooled;
         }
 
         private int CalculateMaxWeight(int length, int width)
@@ -48,8 +59,10 @@ namespace Casus___Containervervoer
             result /= 2;
             return result;
         }
-        public void SortContainerByCategory(IEnumerable<Container> containers)
+        public IEnumerable<Container> SortContainerByCategory(IEnumerable<Container> containers)
         {
+            ClearLists();
+
             foreach (var container in containers)
             {
                 switch (container.Category)
@@ -67,9 +80,21 @@ namespace Casus___Containervervoer
                         _containerValuableCooled.Add(container);
                         break;
                 }
+
             }
+            SortContainerLists();
+
+            return containers;
         }
-        public void SortContainerLists()
+
+        private void ClearLists()
+        {
+            _containerNormal.Clear();
+            _containerCooled.Clear();
+            _containerValuable.Clear();
+            _containerValuableCooled.Clear();
+        }
+        private void SortContainerLists()
         {
             _containerCooled = _containerCooled.OrderByDescending(x => x.Weight).ToList();
             _containerValuableCooled = _containerValuableCooled.OrderByDescending(x => x.Weight).ToList();
@@ -109,8 +134,11 @@ namespace Casus___Containervervoer
                             if (!containerCooled.Added)
                             {
                                 stackId = row.FindLowestStack();
-                                row.stacks[stackId].AddContainer(containerCooled);
+                                if (row.stacks[stackId].CalculateWeightOnTopOfLowestContainer(containerCooled))
+                                {
+                                    row.stacks[stackId].AddContainer(containerCooled);
                                 containerCooled.Added = true;
+                                }
                             }
                         }
 
@@ -172,41 +200,41 @@ namespace Casus___Containervervoer
                 row.ClearStacks();
             }
         }
-        public string BuildVisualizer(int shipWidth, int shipLength)
-        {
-            string shipDimensions = $"?length={shipLength}&width={shipWidth}";
-            string shipContainerTypes = "&stacks=";
-            string shipContainerWeights = "&weights=";
+        //public string BuildVisualizer(int shipWidth, int shipLength)
+        //{
+        //    string shipDimensions = $"?length={shipLength}&width={shipWidth}";
+        //    string shipContainerTypes = "&stacks=";
+        //    string shipContainerWeights = "&weights=";
 
-            foreach (var row in _rows)
-            {
-                foreach (var stack in row.stacks)
-                {
-                    foreach (var container in stack.containers)
-                    {
-                        shipContainerTypes += (int)container.Category + "-";
-                    }
+        //    foreach (var row in _rows)
+        //    {
+        //        foreach (var stack in row.stacks)
+        //        {
+        //            foreach (var container in stack.containers)
+        //            {
+        //                shipContainerTypes += (int)container.Category + "-";
+        //            }
 
-                    shipContainerTypes += "/";
-                }
-            }
-            foreach (var row in _rows)
-            {
-                foreach (var stack in row.stacks)
-                {
-                    foreach (var container in stack.containers)
-                    {
-                        shipContainerWeights += container.Weight + "-";
-                    }
+        //            shipContainerTypes += "/";
+        //        }
+        //    }
+        //    foreach (var row in _rows)
+        //    {
+        //        foreach (var stack in row.stacks)
+        //        {
+        //            foreach (var container in stack.containers)
+        //            {
+        //                shipContainerWeights += container.Weight + "-";
+        //            }
 
-                    shipContainerWeights += ",";
-                }
+        //            shipContainerWeights += ",";
+        //        }
 
-                shipContainerWeights += "/";
-            }
+        //        shipContainerWeights += "/";
+        //    }
 
-            return $"{shipDimensions}{shipContainerTypes}{shipContainerWeights}";
-        }
+        //    return $"{shipDimensions}{shipContainerTypes}{shipContainerWeights}";
+        //}
     }
     
     

@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Reflection;
 using Classes;
+using Container = Classes.Container;
 
 namespace Casus___Containervervoer
 {
@@ -26,15 +27,15 @@ namespace Casus___Containervervoer
             InitializeComponent();
         }
 
-        private void btnAddContainer_Click(object sender, System.EventArgs e)
+        private void BtnAddContainer_Click(object sender, System.EventArgs e)
         {
             int weight = (int)numContainerWeight.Value;
             Container.Categories cat;
 
-            if (checkCooled.Checked && checkValuable.Checked) { cat = Casus___Containervervoer.Container.Categories.ValuableCooled; }
-            else if (checkValuable.Checked) { cat = Casus___Containervervoer.Container.Categories.Valuable; }
-            else if (checkCooled.Checked ){ cat = Casus___Containervervoer.Container.Categories.Cooled; }
-            else { cat = Casus___Containervervoer.Container.Categories.Normal; }
+            if (checkCooled.Checked && checkValuable.Checked) { cat = Classes.Container.Categories.ValuableCooled; }
+            else if (checkValuable.Checked) { cat = Classes.Container.Categories.Valuable; }
+            else if (checkCooled.Checked ){ cat = Classes.Container.Categories.Cooled; }
+            else { cat = Classes.Container.Categories.Normal; }
 
             var container = new Container(cat, weight);
 
@@ -49,7 +50,7 @@ namespace Casus___Containervervoer
 
                 lblContainerTotal.Text = listContainers.Items.Count.ToString();
 
-                int totalWeight = TotalWeight(_containers);
+                int totalWeight = TotalWeight();
                 if (totalWeight >= _ship.MinWeight)
                 {
                     if (!container.CheckTotalWeightContainer(_ship.MinWeight, _ship.MaxWeight, _containers))
@@ -70,7 +71,7 @@ namespace Casus___Containervervoer
 
         }
 
-        private void btnSetShipWeight_Click(object sender, System.EventArgs e)
+        private void BtnSetShipWeight_Click(object sender, System.EventArgs e)
         {
             if (numLength.Value <= 0 || numWidth.Value <= 0)
             {
@@ -99,7 +100,7 @@ namespace Casus___Containervervoer
             lblShipMinWeight.Text = _ship.MinWeight.ToString();
         }
 
-        private void btnContainerDelete_Click(object sender, EventArgs e)
+        private void BtnContainerDelete_Click(object sender, EventArgs e)
         {
             int index = listContainers.SelectedIndex;
 
@@ -118,12 +119,12 @@ namespace Casus___Containervervoer
             _containers.RemoveAt(index);
             lblContainerTotal.Text = listContainers.Items.Count.ToString();
 
-            int totalWeight = TotalWeight(_containers);
+            int totalWeight = TotalWeight();
 
             lblContainerWeight.Text = $"{totalWeight} tons";
         }
 
-        private void btnContainerDeleteAll_Click(object sender, EventArgs e)
+        private void BtnContainerDeleteAll_Click(object sender, EventArgs e)
         {
             listContainers.Items.Clear();
             _containers.Clear();
@@ -134,10 +135,9 @@ namespace Casus___Containervervoer
 
         }
 
-        private void btnCalculation_Click(object sender, EventArgs e)
+        private void BtnCalculation_Click(object sender, EventArgs e)
         {
-            int totalWeight = TotalWeight(_containers);
-            string shipVisualizer = "https://i872272core.venus.fhict.nl/ContainerVisualizer/index.html";
+            int totalWeight = TotalWeight();
             if (totalWeight < _ship.MinWeight)
             {
                 rtbLog.ForeColor = Color.Red;
@@ -149,7 +149,6 @@ namespace Casus___Containervervoer
             {
                 _ship.ClearStacks();
                 _ship.SortContainerByCategory(_containers);
-                _ship.SortContainerLists();
 
                 switch (_ship.AddContainerToStack(_ship.Width, _ship.Lenght))
                 {
@@ -182,7 +181,7 @@ namespace Casus___Containervervoer
             //System.Diagnostics.Process.Start(shipVisualizer);
         }
 
-        private int TotalWeight(List<Container> containers)
+        private int TotalWeight()
         {
             int totalWeight = 0;
             foreach (var item in _containers)
@@ -193,17 +192,17 @@ namespace Casus___Containervervoer
             return totalWeight;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             File.Open("log.txt", FileMode.Open);
         }
 
-        private void label13_Click(object sender, EventArgs e)
+        private void Label13_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void listRows_SelectedIndexChanged(object sender, EventArgs e)
+        private void ListRows_SelectedIndexChanged(object sender, EventArgs e)
         {
             listStacks.Items.Clear();
             foreach (var stack in _ship.GetRows()[listRows.SelectedIndex].stacks)
@@ -212,19 +211,20 @@ namespace Casus___Containervervoer
             }
         }
 
-        private void listStacks_SelectedIndexChanged(object sender, EventArgs e)
+        private void ListStacks_SelectedIndexChanged(object sender, EventArgs e)
         {
             listContainer.Items.Clear();
             foreach (var container in _ship.GetRows()[listRows.SelectedIndex].stacks[listStacks.SelectedIndex].containers)
             {
-                listContainer.Items.Add("Container");
+                listContainer.Items.Add($"Category: {container.Category.ToString()} | Weight: {container.Weight} tons");
+                
             }
 
             lblSelectedStackWeight.Text = _ship.GetRows()[listRows.SelectedIndex].stacks[listStacks.SelectedIndex].StackWeight
                 .ToString();
         }
 
-        private void listContainer_SelectedIndexChanged(object sender, EventArgs e)
+        private void ListContainer_SelectedIndexChanged(object sender, EventArgs e)
         {
             lblSelectedContainerCategory.Text = _ship.GetRows()[listRows.SelectedIndex].stacks[listStacks.SelectedIndex]
                 .containers[listContainer.SelectedIndex].Category.ToString();
