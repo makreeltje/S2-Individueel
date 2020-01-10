@@ -6,7 +6,6 @@ namespace Classes
     public class Stack
     {
         public int Id { get; set; }
-        public int RowId { get; set; }
         public int MaxWeightOnTopOfLowestContainer { get; set; }
         public int StackWeight { get; set; }
         public List<Container> containers = new List<Container>();
@@ -14,7 +13,6 @@ namespace Classes
         public Stack(int stackId, int rowId)
         {
             Id = stackId;
-            RowId = rowId;
             MaxWeightOnTopOfLowestContainer = 120;
             StackWeight = 0;
         }
@@ -31,13 +29,6 @@ namespace Classes
         {
             var lastItem = containers.Last();
             if (StackWeight + item.Weight - lastItem.Weight > MaxWeightOnTopOfLowestContainer)
-                return false;
-            return true;
-        }
-
-        public bool CalculateIfContainerHasBeenAdded()
-        {
-            if (StackWeight > 0)
                 return false;
             return true;
         }

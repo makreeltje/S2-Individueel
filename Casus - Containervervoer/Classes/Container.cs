@@ -50,7 +50,7 @@ namespace Classes
 
         public override string ToString()
         {
-            return $"Weight: {Weight}, Caterogy: {Category}";
+            return $"Weight: {Weight}, Category: {Category.ToString()}";
         }
     }
 }

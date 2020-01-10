@@ -41,76 +41,100 @@ namespace ClassesTests
         [TestMethod()]
         public void Create_CreateNormalContainer_SeeIfCreated()
         {
+            // Assert
             Assert.AreEqual(Container.Categories.Normal, _containerNormal.Category);
         }
-
-        //public void CreateNormalContainer_CategoryNormal_IsCreated()
-        //{
-
-        //}
 
         [TestMethod()]
         public void Create_CreateCooledContainer_SeeIfCreated()
         {
+            // Assert
             Assert.AreEqual(Container.Categories.Cooled, _containerCooled.Category);
         }
 
         [TestMethod()]
         public void Create_CreateValuableContainer_SeeIfCreated()
         {
+            // Assert
             Assert.AreEqual(Container.Categories.Valuable, _containerValuable.Category);
         }
 
         [TestMethod()]
         public void Create_CreateCooledValuableContainer_SeeIfCreated()
         {
+            // Assert
             Assert.AreEqual(Container.Categories.ValuableCooled, _containerCooledValuable.Category);
         }
 
         [TestMethod()]
         public void Check_CheckWeightOfContainers_MaxWeightIsExceeded()
         {
+            // Assert
             Assert.IsTrue(_container.CheckWeightContainer(_containerAboveMaxWeight.Weight));
         }
         [TestMethod()]
         public void Check_CheckWeightOfContainers_MinWeightIsExceeded()
         {
+            // Assert
             Assert.IsTrue(_container.CheckWeightContainer(_containerBelowMinWeight.Weight));
         }
         [TestMethod()]
         public void Check_CheckWeightOfContainers_WeightIsCorrect()
         {
+            // Assert
             Assert.IsFalse(_container.CheckWeightContainer(_containerNormal.Weight));
         }
 
         [TestMethod()]
         public void Check_CheckWeightOfAllContainers_WeightDoesNotExceedThreshold()
         {
+            // Arrange
             Ship ship;
 
+            // Act
             ship = new Ship(2,2);
 
+            // Assert
             Assert.IsTrue(_container.CheckTotalWeightContainer(ship.MinWeight,ship.MaxWeight, _allContainers));
         }
 
         [TestMethod()]
         public void Check_CheckWeightOfAllContainers_WeightDoesExceedMaxThreshold()
         {
+            // Arrange
             Ship ship;
 
+            // Act
             ship = new Ship(1, 1);
 
+            // Assert
             Assert.IsFalse(_container.CheckTotalWeightContainer(ship.MinWeight, ship.MaxWeight, _allContainers));
         }
 
         [TestMethod()]
         public void Check_CheckWeightOfAllContainers_WeightDoesExceedMinThreshold()
         {
+            // Arrange
             Ship ship;
 
+            // Act
             ship = new Ship(3, 3);
 
+            // Assert
             Assert.IsFalse(_container.CheckTotalWeightContainer(ship.MinWeight, ship.MaxWeight, _allContainers));
+        }
+
+        [TestMethod()]
+        public void Check_OverrideString_SeeWhatResultComesUp()
+        {
+            // Arrange
+            Container container;
+            
+            // Act
+            container = new Container(Container.Categories.Normal, 30);
+
+            // Assert
+            Assert.AreEqual("Weight: 30, Category: Normal", container.ToString());
         }
     }
 }
